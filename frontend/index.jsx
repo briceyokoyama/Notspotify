@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import congfigureStore from './store/store';
+import Root from './components/root';
 
 //testing only
 import { receiveCurrentUser, logoutCurrentUser, receiveSessionErrors } from './actions/session_actions';
@@ -19,6 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveSessionErrors = receiveSessionErrors;
 
 
-  ReactDOM.render(<h1>hi there</h1>, root)
+  ReactDOM.render(<Root store={store} />, root)
 })
 

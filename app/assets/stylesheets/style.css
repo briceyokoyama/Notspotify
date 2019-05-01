@@ -1,0 +1,74 @@
+body {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  background: orange;
+}
+
+body  * {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  height: fit-content;
+}
+
+/* HOME NAV BAR STYLES */
+
+.home-nav {
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-content: center
+}
+
+.home-nav.sign-in {
+  background: rgba(0,0,0,1);
+}
+
+.home-nav-el {
+  height: 80px;
+}
+
+.home-nav-el.logo {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.home-nav-el.right {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-nav-el > button {
+  background: black;
+  border: none;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+/* FORM CONTAINER STYLING */
+
+.form-container {
+  width: 100%;
+  height: 100%;
+}
+
+.form-container input {
+  height: 20px;
+  color: black;
+}
+
+.form-container button {
+  height: 20px;
+  background-color: #1DB954;
+  border: none;
+  padding: 16px 48px 18px;
+  line-height: 1;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
