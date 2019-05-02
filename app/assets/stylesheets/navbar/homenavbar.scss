@@ -1,9 +1,11 @@
 .home-nav {
+  position: fixed;
   height: 80px;
+  width: 100%;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: space-between;
-  align-content: center
+  align-content: center;
 }
 
 .home-nav.sign-in {

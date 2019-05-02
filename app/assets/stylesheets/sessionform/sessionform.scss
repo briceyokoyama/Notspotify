@@ -43,6 +43,7 @@
 
 .form-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
@@ -102,4 +103,8 @@
   font-size: 15px;
   color: black;
   font-weight: bolder;
+}
+
+.form-error {
+  color: black;
 }
