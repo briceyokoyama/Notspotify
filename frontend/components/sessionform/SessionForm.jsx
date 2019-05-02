@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    
+
     if (this.props.formType === 'signup') {
       this.state = {
         username: '',
@@ -71,6 +71,7 @@ class SessionForm extends React.Component {
             <br/>
             <button onClick={this.handleSubmit}>LOG IN</button>
           </form>
+          <br/>
             <ul>
             {this.props.errors.map((err, idx) => {
               return (
