@@ -6,7 +6,10 @@ export default (props) => {
     props.currentUser ? (
       <div className={'home-nav sign-in'}>
         <span className={'home-nav-el logo'}>
-          <Link to="/">LOGO PLACEHOLDER</Link>
+          <Link to="/">
+            <svg className={'home-nav-logo'}></svg>
+            <div className={'home-nav-title'}>Notspotify</div>
+          </Link>
         </span>
         <span className={'home-nav-el right'}>
           <button onClick={props.logout}>Logout</button>
@@ -15,7 +18,10 @@ export default (props) => {
     ) : (
       <div className={'home-nav'}>
         <span className={'home-nav-el logo'}>
-          <Link to="/">LOGO PLACEHOLDER</Link>
+          <Link to="/">
+            <div className={'home-nav-logo'}></div>
+            <div className={'home-nav-title'}>Notspotify</div>
+          </Link>
         </span>
         <span className={'home-nav-el right'}>
           <Link to="/signup">Sign up</Link>

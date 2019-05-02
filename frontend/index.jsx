@@ -1,25 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import congfigureStore from './store/store';
 import Root from './components/root';
-
-//testing only
-import { receiveCurrentUser, logoutCurrentUser, receiveSessionErrors } from './actions/session_actions';
-import * as APIUtil from './util/session_api_util';
-
+import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = congfigureStore();
+
+  //bootstrap the user
+  let preloadedState;
+  if ( window.currentUser) {
+    preloadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser }
+      },
+      session: {id: window.currentUser.id}
+    };
+    delete window.currentUser;
+  } else {
+    preloadedState = {};
+  }
+
+  const store = configureStore(preloadedState);
   const root = document.getElementById("root");
-  //for testing
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.APIUtil = APIUtil;
-  window.receiveCurrentUser = receiveCurrentUser;
-  window.logoutCurrentUser = logoutCurrentUser;
-  window.receiveSessionErrors = receiveSessionErrors;
-
-
   ReactDOM.render(<Root store={store} />, root)
 })
 

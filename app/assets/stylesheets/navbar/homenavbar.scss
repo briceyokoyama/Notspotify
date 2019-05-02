@@ -15,7 +15,7 @@
 }
 
 .home-nav-el.logo {
-  width: 150px;
+  width: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,14 +23,39 @@
 }
 
 .home-nav-el.right {
+  margin-right: 20px;
   width: 150px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+.home-nav-el.right *:hover {
+  color: #1DB954;
+}
+
 .home-nav-el > button {
   background: black;
   border: none;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+.home-nav-logo {
+  background-image: image-url('002-face.svg');
+  background-size: 40px;;
+  display: inline-block;
+  margin-top: 10px;
+  width: 40px;;
+  height: 40px;;
+  -webkit-filter: invert(1);
+  margin-bottom: 5px;
+}
+
+.home-nav-title {
+  color: white;
+  font-size: 25px;
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  bottom: 17px;
 }

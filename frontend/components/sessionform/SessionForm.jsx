@@ -37,12 +37,16 @@ class SessionForm extends React.Component {
     const login = () => (
       <div className={'session-page'}>
         <div className={`session-header`}>
-          <Link to='/'><span className={'session-logo'}> </span><span>Notspotify</span></Link>
+          <Link to='/'>
+            <div className={'session-logo'}></div>
+            <div className={'session-header-title'}>Notspotify</div>
+          </Link>
         </div>
           <hr/>
         <div className={'form-container'}>
           <form onSubmit={this.handleSubmit}>
             <button onClick={this.handleSubmit} id={'demo-button'}>DEMO USER LOG IN</button>
+            <div className="session-or">or</div>
             <hr width={'100%'}/>
             <div className={'form-header'}>Sign in with your email address or username</div>  
             <input type='text' placeholder={'Email address or username'} value={this.state.username}
@@ -60,7 +64,10 @@ class SessionForm extends React.Component {
     const signup = () => (
       <div className={'session-page'}>
         <div className='session-header'>
-          <Link to='/'><span className={'session-logo'}> </span><span>Notspotify</span></Link>
+          <Link to='/'>
+            <div className={'session-logo'}></div>
+            <div className={'session-header-title'}>Notspotify</div>
+          </Link>
         </div>
         <hr/>
         <div className={'form-container'}>
