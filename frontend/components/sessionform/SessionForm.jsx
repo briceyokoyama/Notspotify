@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -34,36 +35,52 @@ class SessionForm extends React.Component {
 
   render() {
     const login = () => (
-      <div className={'form-container'}>
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' placeholder={'Email address or username'} value={this.state.username}
-            onChange={this.handleInput('username')}/>
-          <br/>
-          <input type='password' placeholder={'Password'} value={this.state.password}
-            onChange={this.handleInput('password')}/>
-          <br/>
-          <button onClick={this.handleSubmit}>LOG IN</button>
-        </form>
+      <div className={'session-page'}>
+        <div className={`session-header`}>
+          <Link to='/'><span className={'session-logo'}> </span><span>Notspotify</span></Link>
+        </div>
+          <hr/>
+        <div className={'form-container'}>
+          <form onSubmit={this.handleSubmit}>
+            <button onClick={this.handleSubmit} id={'demo-button'}>DEMO USER LOG IN</button>
+            <hr width={'100%'}/>
+            <div className={'form-header'}>Sign in with your email address or username</div>  
+            <input type='text' placeholder={'Email address or username'} value={this.state.username}
+              onChange={this.handleInput('username')}/>
+            <br/>
+            <input type='password' placeholder={'Password'} value={this.state.password}
+              onChange={this.handleInput('password')}/>
+            <br/>
+            <button onClick={this.handleSubmit}>LOG IN</button>
+          </form>
+        </div>
       </div>
     )
 
     const signup = () => (
-      <div className={'form-container'}>
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' placeholder={'Email'} value={this.state.email}
-            onChange={this.handleInput('email')}/>
-          <br/>
-          <input type='text' placeholder={'Username'} value={this.state.username}
-            onChange={this.handleInput('username')}/>
-          <br/>
-          <input type='text' placeholder={'Name'} value={this.state.name}
-            onChange={this.handleInput('name')}/>
-          <br/>
-          <input type='password' placeholder={'Password'} value={this.state.password}
-            onChange={this.handleInput('password')}/>
-          <br/>
-          <button onClick={this.handleSubmit}>Sign Up</button>
-        </form>
+      <div className={'session-page'}>
+        <div className='session-header'>
+          <Link to='/'><span className={'session-logo'}> </span><span>Notspotify</span></Link>
+        </div>
+        <hr/>
+        <div className={'form-container'}>
+          <form onSubmit={this.handleSubmit}>
+            <div className={'form-header'}>Sign up with your email address</div>
+            <input type='text' placeholder={'Email'} value={this.state.email}
+              onChange={this.handleInput('email')}/>
+            <br/>
+            <input type='text' placeholder={'Username'} value={this.state.username}
+              onChange={this.handleInput('username')}/>
+            <br/>
+            <input type='text' placeholder={'What should we call you?'} value={this.state.name}
+              onChange={this.handleInput('name')}/>
+            <br/>
+            <input type='password' placeholder={'Password'} value={this.state.password}
+              onChange={this.handleInput('password')}/>
+            <br/>
+            <button onClick={this.handleSubmit}>SIGN UP</button>
+          </form>
+        </div>
       </div>
     )
 
