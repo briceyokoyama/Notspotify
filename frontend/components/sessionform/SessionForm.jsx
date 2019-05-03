@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-
     if (this.props.formType === 'signup') {
       this.state = {
         username: '',
@@ -21,6 +20,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+    this.getErrors = this.getErrors.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
   }
 
   getErrors(type) {
-    return this.props.errors[type]
+    return this.props.errors.session[type]
   }
 
   render() {
@@ -73,10 +73,9 @@ class SessionForm extends React.Component {
           </form>
           <br/>
             <ul>
-            {this.props.errors.map((err, idx) => {
-              return (
-                <li key={idx} className={'form-error'}>{err}</li>)}
-              )
+            {Array.isArray(this.props.errors) ? (
+            this.props.errors.map((err, idx) => <li key={idx} className={'form-error'}>{err}</li>)
+            ) : ( null )
             }
           </ul>
         </div>
@@ -97,31 +96,24 @@ class SessionForm extends React.Component {
             <div className={'form-header'}>Sign up with your email address</div>
             <input type='text' placeholder={'Email'} value={this.state.email}
               onChange={this.handleInput('email')}/>
-              {/* { Array.isArray(this.errors) ? null :
-                <ul>
-                  {this.getErrors('username').map(err => <li>{err}</li>)}
-                </ul>
-                } */}
+              { Array.isArray(this.props.errors) ? null : <div className={'form-error'}>{`email ${this.props.errors.email[0]}`}</div> }
             <br/>
             <input type='text' placeholder={'Username'} value={this.state.username}
               onChange={this.handleInput('username')}/>
+              { Array.isArray(this.props.errors) ? null : <div className={'form-error'}>{`username ${this.props.errors.username[0]}`}</div> }
             <br/>
             <input type='text' placeholder={'What should we call you?'} value={this.state.name}
               onChange={this.handleInput('name')}/>
+              { Array.isArray(this.props.errors) ? null : <div className={'form-error'}>{`name ${this.props.errors.name[0]}`}</div> }
             <br/>
             <input type='password' placeholder={'Password'} value={this.state.password}
               onChange={this.handleInput('password')}/>
+              { Array.isArray(this.props.errors) ? null : <div className={'form-error'}>{`password ${this.props.errors.password[0]}`}</div> }
             <br/>
             <button onClick={this.handleSubmit}>SIGN UP</button>
+            <div className={"link-to-login"}>Already have an account? <Link to="/login">Log in</Link></div>
           </form>
           <br/>
-          <ul>
-            {this.props.errors.map((err, idx) => {
-              return (
-                <li key={idx} className={'form-error'}>{err}</li>)}
-              )
-            }
-          </ul>
         </div>
       </div>
     )

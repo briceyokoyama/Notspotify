@@ -106,7 +106,28 @@
 }
 
 .form-error {
+  position: relative;
+  top: 8px;
   color: red;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
+}
+
+.link-to-login {
+  margin-top: 15px;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+.link-to-login a {
+  color: #1DB954;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+.link-to-login a:hover {
+  filter: brightness(1.1);
 }
