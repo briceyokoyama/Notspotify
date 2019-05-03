@@ -10,7 +10,7 @@
 #
 
 class Album < ApplicationRecord
-  validate :title, :artist_id, presence: true
+  validates :title, :artist_id, presence: true
 
   has_one_attached :cover
 

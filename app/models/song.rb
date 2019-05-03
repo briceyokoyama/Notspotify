@@ -10,7 +10,7 @@
 #
 
 class Song < ApplicationRecord
-  validate :title, :album_id, presence: true
+  validates :title, :album_id, presence: true
 
   has_one_attached :src
 
