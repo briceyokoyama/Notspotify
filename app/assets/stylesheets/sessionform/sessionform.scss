@@ -106,8 +106,8 @@
 }
 
 .form-error {
-  position: relative;
-  top: 8px;
+  align-self: flex-start;
+  padding-top: 16px;
   color: #bd3200;
   font-size: 14px;
   font-weight: 500;

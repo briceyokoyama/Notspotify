@@ -103,27 +103,19 @@ class SessionForm extends React.Component {
             <div className={'form-header'}>Sign up with your email address</div>
             <input type='text' placeholder={'Email'} value={this.state.email}
               onChange={this.handleInput('email')}/>
-              { (this.hasErrors('email')) ? <div className={'form-error'}>{`email ${this.props.errors.email[0]}`}</div> : null }
-              {/* { (Array.isArray(this.props.errors) && this.props.errors) ? null : <div className={'form-error'}>{`email ${this.props.errors.email[0]}`}</div> } */}
-              {/* { (this.props.errors.email == true) ? null : <div className={'form-error'}>{`email ${this.props.errors.email[0]}`}</div> } */}
+              { (this.hasErrors('email')) ? <div className={'form-error'}>{`Email ${this.props.errors.email[0]}`}</div> : null }
             <br/>
             <input type='text' placeholder={'Username'} value={this.state.username}
               onChange={this.handleInput('username')}/>
-              { (this.hasErrors('username')) ? <div className={'form-error'}>{`username ${this.props.errors.username[0]}`}</div>  : null }
-              {/* { (Array.isArray(this.props.errors)) ? null : <div className={'form-error'}>{`username ${this.props.errors.username[0]}`}</div> } */}
-              {/* { (this.props.errors.username == true) ? null : <div className={'form-error'}>{`username ${this.props.errors.username[0]}`}</div> } */}
+              { (this.hasErrors('username')) ? <div className={'form-error'}>{`Username ${this.props.errors.username[0]}`}</div>  : null }
             <br/>
             <input type='text' placeholder={'What should we call you?'} value={this.state.name}
               onChange={this.handleInput('name')}/>
-              { (this.hasErrors('name')) ? <div className={'form-error'}>{`name ${this.props.errors.name[0]}`}</div> : null }
-              {/* { (Array.isArray(this.props.errors)) ? null : <div className={'form-error'}>{`name ${this.props.errors.name[0]}`}</div> } */}
-              {/* { (this.props.errors.name == true) ? null : <div className={'form-error'}>{`name ${this.props.errors.name[0]}`}</div> } */}
+              { (this.hasErrors('name')) ? <div className={'form-error'}>{`Name ${this.props.errors.name[0]}`}</div> : null }
             <br/>
             <input type='password' placeholder={'Password'} value={this.state.password}
               onChange={this.handleInput('password')}/>
-              { (this.hasErrors('password')) ? <div className={'form-error'}>{`password ${this.props.errors.password[0]}`}</div> : null }
-              {/* { (Array.isArray(this.props.errors)) ? null : <div className={'form-error'}>{`password ${this.props.errors.password[0]}`}</div> } */}
-              {/* { (this.props.errors.password == true) ? null : <div className={'form-error'}>{`password ${this.props.errors.password[0]}`}</div> } */}
+              { (this.hasErrors('password')) ? <div className={'form-error'}>{`Password ${this.props.errors.password[0]}`}</div> : null }
             <br/>
             <button onClick={this.handleSubmit}>SIGN UP</button>
             <div className={"link-to-login"}>Already have an account? <Link to="/login">Log in</Link></div>
