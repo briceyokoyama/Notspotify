@@ -5,7 +5,7 @@ import MainFooter from './MainFooter';
 
 const MainPage = () => {
   return (
-    <div>
+    <div className='main-page'>
       <HomeNavBarContainer />
       <Splash />
       <MainFooter />
