@@ -78,6 +78,10 @@ class SessionForm extends React.Component {
             ) : ( null )
             }
           </ul>
+          <br/>
+          <hr width={`50%`}/>
+          <div className={"link-to-signup"}>Don't have an account?</div>
+          <Link to='/signup' className={'signup-button'}>SIGN UP FOR NOTSPOTIFY</Link>
         </div>
       </div>
     )
