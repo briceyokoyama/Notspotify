@@ -14,13 +14,19 @@ class Playlist < ApplicationRecord
 
   has_one_attached :cover
 
+  belongs_to :creator,
+  class_name: :User,
+  foreign_key: :user_id
+
   has_many :playlist_songs,
   class_name: :PlaylistSong,
-  foreign_key: :playlist_id
+  foreign_key: :playlist_id,
+  dependent: :destroy
 
   has_many :playlist_followers,
   class_name: :PlaylistFollower,
-  foreign_key: :playlist_id
+  foreign_key: :playlist_id,
+  dependent: :destroy
 
   has_many :songs,
   through: :playlist_songs,

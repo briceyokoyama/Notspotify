@@ -21,5 +21,13 @@ class Song < ApplicationRecord
   has_one :artist,
   through: :album,
   source: :artist
-  
+
+  has_many :playlist_songs,
+  class_name: :PlaylistSong,
+  foreign_key: :song_id
+
+  has_many :playlists,
+  through: :playlist_songs,
+  source: :playlist
+
 end

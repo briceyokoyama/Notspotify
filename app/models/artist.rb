@@ -15,7 +15,8 @@ class Artist < ApplicationRecord
 
   has_many :albums,
   class_name: :Album,
-  foreign_key: :artist_id
+  foreign_key: :artist_id,
+  dependent: :destroy
 
   has_many :songs,
   through: :albums,

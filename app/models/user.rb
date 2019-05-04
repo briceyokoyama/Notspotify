@@ -16,9 +16,22 @@ class User < ApplicationRecord
   validates :username, :session_token, :email, :name, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  after_initialize :ensure_session_token
+
   has_one_attached :avatar
 
-  after_initialize :ensure_session_token
+  has_many :playlists,
+  class_name: :Playlist,
+  foreign_key: :user_id
+
+  has_many :playlist_follower,
+  class_name: :PlaylistFollower,
+  foreign_key: :user_id,
+  dependent: :destroy
+
+  has_many :followed_playlists,
+  through: :playlist_follower,
+  source: :playlist
 
   attr_reader :password
 

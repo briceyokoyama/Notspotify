@@ -20,6 +20,7 @@ class Album < ApplicationRecord
 
   has_many :songs,
   class_name: :Song,
-  foreign_key: :album_id
+  foreign_key: :album_id,
+  dependent: :destroy
   
 end
