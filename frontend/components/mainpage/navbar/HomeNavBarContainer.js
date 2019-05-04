@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import HomeNavBar from './HomeNavBar';
-import { logout } from '../../actions/session_actions'
+import { logout } from '../../../actions/session_actions'
 
 const mstp = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id]

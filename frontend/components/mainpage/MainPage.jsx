@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeNavBarContainer from "../navbar/HomeNavBarContainer";
+import HomeNavBarContainer from "./navbar/HomeNavBarContainer";
 import Splash from './Splash';
 import MainFooter from './MainFooter';
 
