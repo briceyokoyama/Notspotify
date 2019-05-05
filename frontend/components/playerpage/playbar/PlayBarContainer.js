@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NavBar from './NavBar';
+import PlayBar from './PlayBar';
 
 const mstp = (state, ownProps) => ({
 
@@ -9,5 +9,4 @@ const mdtp = dispatch => ({
 
 })
 
-export default connect(mstp, mdtp)(NavBar);
-
+export default connect(mstp, mdtp)(PlayBar);

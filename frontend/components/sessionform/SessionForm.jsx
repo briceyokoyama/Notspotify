@@ -49,8 +49,6 @@ class SessionForm extends React.Component {
 
   render() {
 
-    // debugger;
-
     const login = () => (
       <div className={'session-page'}>
         <div className={`session-header`}>

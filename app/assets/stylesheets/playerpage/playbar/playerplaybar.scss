@@ -1,0 +1,12 @@
+.player-playbar-container {
+  position: fixed;
+  bottom: 0;
+  height: 90px;
+  width: 100vw;
+  padding: 0 16px;
+  background: #282828;
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}

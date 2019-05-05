@@ -1,0 +1,10 @@
+.player-main-display-container {
+  height: 100vh;
+  width: 100vw;
+  padding-left: 230px;
+  padding-bottom: 90px;
+  background-image: radial-gradient(farthest-corner at 0px 0px, rgb(45, 108, 107) 35%,  black 80%);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}

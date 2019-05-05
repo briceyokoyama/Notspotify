@@ -1,0 +1,94 @@
+.player-navbar-container {
+  position: fixed;
+  height: 100%;
+  width: 230px;
+  background: rgba(0, 0, 0, 0.8);
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.player-navbar-container * {
+  color: grey;
+}
+
+// .player-navbar-container *:hover {
+//   color: white;
+// }
+
+.player-logo-container {
+  padding-left: 24px;
+  padding-top: 10px;
+}
+
+.player-nav-logo {
+  @extend %logo;
+  background-size: 40px;;
+  display: inline-block;
+  margin-top: 10px;
+  width: 40px;;
+  height: 40px;;
+  -webkit-filter: invert(1);
+  margin-bottom: 5px;
+}
+
+.player-nav-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  left: 6px;
+  bottom: 14px;
+  letter-spacing: .025px;
+} 
+
+.player-nav-main {
+  margin-top: 20px;
+}
+
+.player-nav-element {
+  i {
+    font-size: 28px;
+    transition: .35s;
+  }
+
+  span {
+    margin-left: 14px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: .35s;
+  }
+  padding-left: 24px;
+  padding-top: 10px;
+}
+
+.player-nav-element:hover {
+  li {
+    i {
+      color: white;
+    }
+
+    span {
+      color: white;
+    }
+  }
+  cursor: pointer;
+}
+
+.player-user-info {
+  span {
+    font-size: 13px;
+    font-weight: 400;
+    
+  }
+  align-self: center;
+  justify-self: end;
+  margin-bottom: 120px;
+}
+
+.player-user-info:hover {
+  cursor: pointer;
+}

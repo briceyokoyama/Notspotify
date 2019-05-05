@@ -43,7 +43,7 @@
 }
 
 .home-nav-logo {
-  background-image: image-url('002-face.svg');
+  @extend %logo;
   background-size: 40px;;
   display: inline-block;
   margin-top: 10px;
