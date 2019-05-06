@@ -33,3 +33,33 @@
     }
   }
 }
+
+.playlist-create-button-holder {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding-right: 230px;
+  align-items: center;
+
+  button {
+    @extend %button;
+    background-color: $green;
+    font-size: .65em;
+    letter-spacing: .55px;
+    padding: 0 0;
+    font-weight: 400;
+    height: 30px;
+    width: 125px;
+    margin-bottom: 30px;
+    align-self: center;
+    transition: 0s;
+  }
+
+  button:hover {
+    filter: brightness(1.1);
+    height: 36px;
+    width: 150px;
+    font-size: 0.7em;
+  }
+
+}

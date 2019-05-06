@@ -74,7 +74,7 @@
 .form-container button {
   height: 49px;
   width: 300px;
-  background-color: #1DB954;
+  background-color: $green;
   border: none;
   padding: 16px 48px 18px;
   font-size: 14px;
@@ -122,7 +122,7 @@
 }
 
 .link-to-login a {
-  color: #1DB954;
+  color: $green;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.25px;

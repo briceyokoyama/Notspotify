@@ -1,8 +1,9 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PlayerDisplayNavContainer from './PlayerDisplayNavContainer';
 import PlaylistIndexContainer from './indexes/playlists/PlaylistIndexContainer';
-import { ProtectedRoute } from '../../../util/route_util';
+import ArtistIndexContainer from './indexes/artists/ArtistIndexContainer';
+// import { ProtectedRoute } from '../../../util/route_util';
 
 class PlayerDisplay extends React.Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class PlayerDisplay extends React.Component {
       <div className='player-main-display-container'>
         <PlayerDisplayNavContainer />
         <div className={'player-display-index-container'}>
-        <PlaylistIndexContainer />
+        <Switch>
+          <Route path='/:main/playlists' component={PlaylistIndexContainer} />
+          <Route path='/:main/artists' component={ArtistIndexContainer} />
+        </Switch>
         </div>
       </div>
     )

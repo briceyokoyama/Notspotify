@@ -1,14 +1,14 @@
 import React from 'react';
 import PlayerNavBarContainer from './navbar/PlayerNavBarContainer';
 import PlayBarContainer from './playbar/PlayBarContainer';
-import PlayerDisplayContainer from './display/PlayerDisplayContainer';
+import PlayerDisplay from './display/PlayerDisplay';
 
 const PlayerPage = () => {
   return (
     <div className='player-page'>
       <PlayerNavBarContainer />
       <PlayBarContainer />
-      <PlayerDisplayContainer />
+      <PlayerDisplay />
     </div>
   )
 }

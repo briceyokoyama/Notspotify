@@ -1,3 +1,17 @@
 %logo {
   background-image: image-url('002-face.svg');
 }
+
+%button {
+  height: 49px;
+  width: 300px;
+  border: none;
+  padding: 16px 48px 18px;
+  font-size: 14px;
+  border-radius: 72px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  transition-duration: 0.5s;
+}
+
+$green: #1DB954;

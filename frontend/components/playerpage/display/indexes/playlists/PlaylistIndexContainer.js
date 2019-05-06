@@ -8,7 +8,8 @@ const playlistSelector = (playlists) => {
 
 const mstp = ({entities: {playlists}, session: {id}}, ownProps) => ({
   currentUserId: id,
-  playlists: playlistSelector(playlists)
+  playlists: playlistSelector(playlists),
+  scenario: ownProps.match.params[0]
 })
 
 const mdtp = dispatch => ({

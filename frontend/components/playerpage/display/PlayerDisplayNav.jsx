@@ -3,13 +3,12 @@ import React from 'react';
 class PlayerDisplayNav extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(type) {
     return (e) => {
-      this.props.history.push(`/home/${type.toLowerCase()}`);
+      this.props.history.push(`/${this.props.match.params[0]}/${type.toLowerCase()}`);
     }
   }
   

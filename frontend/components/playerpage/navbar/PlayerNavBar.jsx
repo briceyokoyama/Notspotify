@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 class PlayerNavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(type) {
+    return (e) => {
+      this.props.history.push(`/${type.toLowerCase()}`);
+    }
   }
 
   render() {
@@ -19,20 +26,20 @@ class PlayerNavBar extends React.Component {
           <nav className={'player-nav-main'}>
             <ul>
               <div className={'player-nav-element'}>
-                <li>
+                <li onClick={this.handleClick('home/playlists')}>
                   <i className={'fa fa-home'}/>
                   <span className={'player-nav-text'}>Home</span>
                 </li>
               </div>
               <div className={'player-nav-element'}>
-                <li>
-                  <i className={'fa fa-home'}/>
+                <li onClick={this.handleClick('search')}>
+                  <i className={'fa fa-search'}/>
                   <span className={'player-nav-text'}>Search</span>
                 </li>
               </div>
               <div className={'player-nav-element'}>
-                <li>
-                  <i className={'fa fa-home'}/>
+                <li onClick={this.handleClick('library/playlists')}>
+                  <i className={'fa fa-fire'}/>
                   <span className={'player-nav-text'}>Your Library</span>
                 </li>
               </div>
