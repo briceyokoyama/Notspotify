@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaylistIndexItem from './PlaylistIndexItem';
+import CreatePlaylistModal from './CreatePlaylistModal';
 
 class PlaylistIndex extends React.Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class PlaylistIndex extends React.Component {
     this.state = {
       showModal: false
     }
+    this.showModal = this.showModal.bind(this); 
+    this.hideModal = this.hideModal.bind(this); 
   }
 
   componentDidMount() {
@@ -25,9 +28,11 @@ class PlaylistIndex extends React.Component {
   render() {
     return (
       <>
+        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal}>
+        </CreatePlaylistModal>
         { (this.props.match.params.main === 'library') ? (
           <div className={'playlist-create-button-holder'}>
-            <button className={'playlist-create-button'}>
+            <button className={'playlist-create-button'} onClick={this.showModal}>
               NEW PLAYLIST
             </button>
           </div>

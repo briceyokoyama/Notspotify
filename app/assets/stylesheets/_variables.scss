@@ -1,3 +1,5 @@
+$green: #1DB954;
+
 %logo {
   background-image: image-url('002-face.svg');
 }
@@ -14,4 +16,44 @@
   transition-duration: 0.5s;
 }
 
-$green: #1DB954;
+%small-button {
+  @extend %button;
+  background-color: $green;
+  font-size: .65em;
+  letter-spacing: .55px;
+  padding: 0 0;
+  font-weight: 400;
+  height: 30px;
+  width: 125px;
+  margin-bottom: 30px;
+  align-self: center;
+  transition: 0s;
+}
+
+%small-button:hover {
+  filter: brightness(1.1);
+  height: 36px;
+  width: 150px;
+  font-size: 0.7em;
+}
+
+%modal {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+%modal-main {
+  position:fixed;
+  background: #282828;
+  width: 100%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}

@@ -18,7 +18,7 @@ class PlayerNavBar extends React.Component {
       <div className={'player-navbar-container'}>
         <div className={'player-navigation-container'}>
           <div className={'player-logo-container'}>
-            <Link to="/">
+            <Link to="/home/playlists">
               <svg className={'player-nav-logo'}></svg>
               <div className={'player-nav-title'}>Notspotify</div>
             </Link>
