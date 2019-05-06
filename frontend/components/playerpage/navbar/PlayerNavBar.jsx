@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class NavBar extends React.Component {
+class PlayerNavBar extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -40,12 +40,12 @@ class NavBar extends React.Component {
           </nav>
         </div>
         <div className={'player-user-info'}>
-            <span>User Info</span>
-          </div>
+          <span onClick={this.props.logout}>Logout</span>
+        </div>
       </div>
     )
   }
 
 }
 
-export default NavBar;
+export default PlayerNavBar;

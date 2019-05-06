@@ -1,0 +1,35 @@
+.playlist-index {
+  width: 100%;
+  max-width: 2000px;
+  display: flex;
+  align-self: center;
+  ul {
+    width: 100%;
+    padding-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    li {
+      margin: 0 7px;
+      .playlist-title {
+        color: white;
+        font-weight: 500;
+        font-size: .8em;
+        margin: 10px 7px;
+        text-align: center;
+      }
+
+      .playlist-creator {
+        color: grey;
+        font-weight: 500;
+        font-size: .8em;
+        text-align: center;
+      }
+
+      img {
+        height: 220px;
+        width: 220px;     
+      }
+    }
+  }
+}

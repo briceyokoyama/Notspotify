@@ -25,8 +25,8 @@ ActiveRecord::Base.transaction do
   artist1 = Artist.create!({name: "artist1"})
   artist2 = Artist.create!({name: "artist2"})
 
-  album1 = Album.create!({title: "album1", artist_id: artist1.id})
-  album2 = Album.create!({title: "album2", artist_id: artist2.id})
+  album1 = Album.create!({title: "album1", artist_id: artist1.id, year: 2011})
+  album2 = Album.create!({title: "album2", artist_id: artist2.id, year: 2018})
 
   song1 = Song.create!({title: "Song1", album_id: album1.id})
   song2 = Song.create!({title: "Song2", album_id: album1.id})

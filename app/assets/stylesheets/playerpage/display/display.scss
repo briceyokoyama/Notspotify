@@ -2,9 +2,45 @@
   height: 100vh;
   width: 100vw;
   padding-left: 230px;
+  padding-right: 230px;
   padding-bottom: 90px;
   background-image: radial-gradient(farthest-corner at 0px 0px, rgb(45, 108, 107) 35%,  black 80%);
   display: flex;
-  justify-content: space-between;
-  align-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.player-display-nav-container {
+  width: 100%;
+  height: fit-content;
+  padding-right: 230px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  ul {
+    height: fit-content;
+    li {
+      color: grey;
+      display: inline;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 0 14px;
+      transition: 0.25s;
+    }
+
+    li:hover {
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.player-display-index-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 230px;
+  margin-top: 40px;
 }
