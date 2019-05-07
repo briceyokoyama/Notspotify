@@ -1,23 +1,24 @@
 .player-main-display-container {
   height: 100vh;
-  width: 100vw;
-  padding-left: 230px;
-  padding-right: 230px;
+  width: 100%;
   padding-bottom: 90px;
+  padding-top: 40px;
   background-image: radial-gradient(farthest-corner at 0px 0px, rgb(45, 108, 107) 35%,  black 80%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
+  // align-items: center;
+  overflow: hidden;
 }
 
 .player-display-nav-container {
   width: 100%;
+  max-width: 1600px;
   height: fit-content;
-  padding-right: 230px;
+  margin-left: 230px;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  // padding-top: 40px;
   ul {
     height: fit-content;
     li {
@@ -38,9 +39,12 @@
 
 .player-display-index-container {
   width: 100%;
+  max-width: 1600px;
+  margin-left: 230px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0 230px;
+  padding: 0;
   margin-top: 40px;
 }

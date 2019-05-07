@@ -1,44 +1,75 @@
 .playlist-index {
   width: 100%;
-  max-width: 2000px;
+  // margin-left: 230px;
+  max-width: inherit;
   display: flex;
   align-self: center;
   ul {
     width: 100%;
     padding-left: 25px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     li {
-      margin: 0 7px;
-      .playlist-title {
-        color: white;
-        font-weight: 500;
-        font-size: .8em;
-        margin: 10px 7px;
-        text-align: center;
-      }
+      margin: 10px 7px;
 
-      .playlist-creator {
-        color: grey;
-        font-weight: 500;
-        font-size: .8em;
-        text-align: center;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a{
+          
+          img {
+            height: 220px;
+            width: 220px;     
+          }
+  
+          img:hover {
+            cursor: pointer;
+          }
+  
+          .playlist-title {
+            display: block;
+            color: white;
+            font-weight: 500;
+            font-size: .8em;
+            margin: 10px 7px;
+            align-self: center;
+          }
+  
+          .playlist-title:hover {
+            cursor: pointer;
+          }
+        }
       }
-
-      img {
-        height: 220px;
-        width: 220px;     
+      div:hover {
+        img {
+          filter:brightness(.8)
+        }
       }
     }
   }
+}
+
+.playlist-creator {
+  color: grey;
+  font-weight: 500;
+  font-size: .8em;
+  text-align: center;
+}
+
+.playlist-creator:hover {
+  text-decoration: underline;
+  filter: brightness(1.3);
+  cursor: pointer;
 }
 
 .playlist-create-button-holder {
   height: 60px;
   display: flex;
   justify-content: center;
-  padding-right: 230px;
+  // padding-left: 230px;
   align-items: center;
 
   button {
@@ -53,24 +84,101 @@
 
 .create-playlist-modal {
   @extend %modal;
-}
 
-.create-playlist-modal-text {
-  @extend %modal-main;
-}
+  div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.playlist-modal-create-button-holder {
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    .exit-button {
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      font-weight: 300;
+    }
 
-  button {
-    @extend %small-button;
+    .exit-button:hover {
+      font-size: 50px;
+      filter: brightness(1.1);
+    }
+
+    .playlist-modal-header {
+      height: 40px;
+      font-size: 44px;
+      font-weight: 600;
+      margin: 30px 0;
+    }
+
+    .playlist-entry {
+      @extend %modal-main;
+      height: 140px;
+
+      div {
+        background-color: inherit;
+        width: 100%;
+        height: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        div {
+          font-size: 13px;
+          font-weight: 300;
+          height: fit-content;
+          margin-top: 15px;
+        }
+        form {
+          width: 100%;
+          input {
+            width: 100%;
+            background-color: inherit;
+            border: none;
+            font-size: 44px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .playlist-modal-button-holder {
+      padding: 50px 0;
+      height: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+    
+      // span {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-content: center;
+      //   margin: 0 20px;
+
+        .playlist-cancel-button {
+          @extend %small-button;
+          background-color: #282828;
+          opacity: 0.7;
+          border: 2px white solid;
+          position: fixed;
+          left: 45%;
+          transform: translate(-50%, -50%);
+        }
+
+        button {
+          @extend %small-button;
+          position: fixed;
+          left: 55%;
+          transform: translate(-50%, -50%);
+        }
+      
+        button:hover {
+          @extend %small-button:hover
+        }
+      }
   }
-
-  button:hover {
-    @extend %small-button:hover
-  }
-
 }
+

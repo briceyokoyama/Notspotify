@@ -28,7 +28,7 @@ class PlaylistIndex extends React.Component {
   render() {
     return (
       <>
-        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal}>
+        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}>
         </CreatePlaylistModal>
         { (this.props.match.params.main === 'library') ? (
           <div className={'playlist-create-button-holder'}>

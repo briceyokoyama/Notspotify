@@ -2,29 +2,55 @@
 
 import React from 'react';
 
-const CreatePlaylistModal = ({ handleClose, show, children }) => {
-  const showHideClassName = show ? 'create-playlist-modal display-block' : 'create-playlist-modal display-none';
+class CreatePlaylistModal extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className={showHideClassName}>
-      <div className>
-        <section className={'create-playlist-modal-text'}>
-          <div>
+    this.state = {
+      title: "",
+      user_id: this.props.currentUserId
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  // = ({ handleClose, show, action, currentUser }) =>
+
+  handleInput() {
+    return (e) => this.setState({ title: e.target.value })
+  }
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.makePlaylist(this.state);
+    this.setState({title: ""});
+    this.props.handleClose();
+  }
+
+  render() {
+    const showHideClassName = this.props.show ? 'create-playlist-modal display-block' : 'create-playlist-modal display-none';
+
+    return (
+      <div className={showHideClassName}>
+        <div>
+          <div className={'exit-button'} onClick={this.props.handleClose}>X</div>
+          <div className={'playlist-modal-header'}>Create new playlist</div>
+          <div className={'playlist-entry'}>
             <div>
-              Hello
-            </div>
-            <div>
-              Hello
+              <div>
+                Playlist Name
+              </div>
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder={'Start typing...'} value={this.state.title} onChange={this.handleInput()}/>
+              </form>
             </div>
           </div>
-        </section>
-        <div className={'playlist-modal-button-holder'}>
-          <button className={'playlist-modal-cancel-button'}>CANCEL</button>
-          <button className={'playlist-modal-create-button'}>CREATE</button>
+          <div className={'playlist-modal-button-holder'}>
+            <button className={'playlist-cancel-button'} onClick={this.props.handleClose}>CANCEL</button>
+            <button onClick={this.handleSubmit}>CREATE</button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default CreatePlaylistModal;
