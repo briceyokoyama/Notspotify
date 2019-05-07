@@ -9,11 +9,11 @@ const playlistSelector = (playlists) => {
 const mstp = ({entities: {playlists}, session: {id}}, ownProps) => ({
   currentUserId: id,
   playlists: playlistSelector(playlists),
-  scenario: ownProps.match.params[0]
+  scenario: ownProps.match.params.main
 })
 
 const mdtp = dispatch => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists()),
+  fetchPlaylists: (user_id) => dispatch(fetchPlaylists(user_id)),
   makePlaylist: playlist => dispatch(makePlaylist(playlist))
 })
 

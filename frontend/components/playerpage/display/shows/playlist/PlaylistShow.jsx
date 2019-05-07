@@ -6,13 +6,20 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchSongs()
+    debugger;
+    this.props.fetchPlaylist(this.props.playlistId);
+    this.props.fetchSongs(this.props.playlistId);
   }
 
 
   render() {
     return (
-      <div></div>
+      <div className={'playlist-show-container'}>
+        <div className={'playlist-info-container'}>
+        </div>
+        <div className={'song-list-container'}>
+        </div>
+      </div>
     )
   }
 }

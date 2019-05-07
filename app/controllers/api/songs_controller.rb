@@ -1,7 +1,8 @@
 class Api::SongsController < ApplicationController
 
   def index
-    playlist = Playlist.find_by(id: params[:id])
+    debugger;
+    playlist = Playlist.find(params[:playlist_id])
     @songs = playlist.songs
   end
 

@@ -14,7 +14,21 @@ class PlaylistIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylists();
+    if (this.props.scenario === 'library') {
+      this.props.fetchPlaylists(this.props.currentUserId);
+    } else {
+      this.props.fetchPlaylists();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    // debugger;
+    if (this.props.scenario !== prevProps.scenario)
+    if (this.props.scenario === 'library') {
+      this.props.fetchPlaylists(this.props.currentUserId);
+    } else {
+      this.props.fetchPlaylists();
+    }
   }
 
   showModal() {

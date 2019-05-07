@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
 
 ActiveRecord::Base.transaction do
 
@@ -16,22 +16,52 @@ ActiveRecord::Base.transaction do
   PlaylistFollower.destroy_all
   PlaylistSong.destroy_all
   User.destroy_all
+  
+  dir = Rails.root
 
   user1 = User.create!({username: "user1", name: "user1name", email: "user1@gmail.com", password: "password" })
   user2 = User.create!({username: "user2", name: "user2name", email: "user2@gmail.com", password: "password" })
   user3 = User.create!({username: "user3", name: "user3name", email: "user3@gmail.com", password: "password" })
   user4 = User.create!({username: "user4", name: "user4name", email: "user4@gmail.com", password: "password" })
 
-  artist1 = Artist.create!({name: "artist1"})
-  artist2 = Artist.create!({name: "artist2"})
+  # user1.avatar.attach(io: File.open('app/assets/seed_data/user1_avatar.jpg'), filename: 'avatar.jpg')
+  # user2.avatar.attach(io: File.open('app/assets/seed_data/user2_avatar.jpg'), filename: 'avatar.jpg')
+  # user3.avatar.attach(io: File.open('app/assets/seed_data/user3_avatar.jpg'), filename: 'avatar.jpg')
+  # user4.avatar.attach(io: File.open('app/assets/seed_data/user4_avatar.jpg'), filename: 'avatar.jpg')
+  # user1.avatar.attach(io: File.open(dir + 'storage/user1_avatar.jpg'), filename: 'avatar.jpg')
+  # user2.avatar.attach(io: File.open(dir + 'storage/user2_avatar.jpg'), filename: 'avatar.jpg')
+  # user3.avatar.attach(io: File.open(dir + 'storage/user3_avatar.jpg'), filename: 'avatar.jpg')
+  # user4.avatar.attach(io: File.open(dir + 'storage/user4_avatar.jpg'), filename: 'avatar.jpg')
 
-  album1 = Album.create!({title: "album1", artist_id: artist1.id, year: 2011})
-  album2 = Album.create!({title: "album2", artist_id: artist2.id, year: 2018})
+  artist1 = Artist.create!({name: "Louis La Roche"})
+  artist2 = Artist.create!({name: "Trey Songz"})
 
-  song1 = Song.create!({title: "Song1", album_id: album1.id})
-  song2 = Song.create!({title: "Song2", album_id: album1.id})
-  song3 = Song.create!({title: "Song3", album_id: album2.id})
-  song4 = Song.create!({title: "Song4", album_id: album2.id})
+  # artist1.avatar.attach(io: File.open('app/assets/seed_data/artist1_avatar.jpg'), filename: 'avatar.jpg')
+  # artist2.avatar.attach(io: File.open('app/assets/seed_data/artist2_avatar.jpg'), filename: 'avatar.jpg')
+  # artist1.avatar.attach(io: File.open(dir + 'storage/artist1_avatar.jpg'), filename: 'avatar.jpg')
+  # artist2.avatar.attach(io: File.open(dir + 'storage/artist2_avatar.jpg'), filename: 'avatar.jpg')
+
+  album1 = Album.create!({title: "R E D G I A N T S", artist_id: artist1.id, year: 2016})
+  album2 = Album.create!({title: "Singles", artist_id: artist2.id, year: 2018})
+
+  # album1.cover.attach(io: File.open('app/assets/seed_data/album1_cover.jpg'), filename: 'cover.jpg')
+  # album2.cover.attach(io: File.open('app/assets/seed_data/album2_cover.jpg'), filename: 'cover.jpg')
+  # album1.cover.attach(io: File.open(dir + 'storage/album1_cover.jpg'), filename: 'cover.jpg')
+  # album2.cover.attach(io: File.open(dir + 'storage/album2_cover.jpg'), filename: 'cover.jpg')
+
+  song1 = Song.create!({title: "Signs of Life", album_id: album1.id})
+  song2 = Song.create!({title: "Dancin' Shoes", album_id: album1.id})
+  song3 = Song.create!({title: "Don't Wanna Come Down", album_id: album2.id})
+  song4 = Song.create!({title: "First Love", album_id: album2.id})
+
+  song1.src.attach(io: File.open('app/assets/seed_data/louislaroche-dancingshoes.flac'), filename: 'source.flac')
+  song2.src.attach(io: File.open('app/assets/seed_data/louislaroche-signsoflife.flac'), filename: 'source.flac')
+  song3.src.attach(io: File.open('app/assets/seed_data/treysongz-dontwannacomedown.mp3'), filename: 'source.mp3')
+  song4.src.attach(io: File.open('app/assets/seed_data/treysongz-firstlove.mp3'), filename: 'source.mp3')
+  # song1.src.attach(io: File.open(dir + 'storage/louislaroche-dancingshoes.flac'), filename: 'source.jpg')
+  # song2.src.attach(io: File.open(dir + 'storage/louislaroche-signsoflife.flac'), filename: 'source.jpg')
+  # song3.src.attach(io: File.open(dir + 'storage/treysongz-dontwannacomedown.mp3'), filename: 'source.jpg')
+  # song4.src.attach(io: File.open(dir + 'storage/treysongz-firstlove.mp3'), filename: 'source.jpg')
 
   playlist1 = Playlist.create!({title: "playlist1", user_id: user1.id})
   playlist2 = Playlist.create!({title: "playlist2", user_id: user2.id})

@@ -1,7 +1,15 @@
-export const fetchPlaylists = () => (
+export const fetchPlaylists = (user_id) => (
   $.ajax({
     method: `GET`,
-    url: `/api/playlists`
+    url: `/api/playlists`,
+    data: {user_id: user_id}
+  })
+)
+
+export const fetchPlaylist = (id) => (
+  $.ajax({
+    method: `GET`,
+    url: `/api/playlists/${id}`
   })
 )
 

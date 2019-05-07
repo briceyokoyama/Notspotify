@@ -1,13 +1,19 @@
 class Api::PlaylistsController < ApplicationController
 
   def index
-    @playlists = Playlist.all
+    if params[:user_id].nil?
+      @playlists = Playlist.all
+    else
+      user = User.find(params[:user_id])
+      @playlists = user.followed_playlists
+    end
   end
 
   def create
     @playlist = Playlist.new(playlist_params)
 
     if @playlist.save
+      PlaylistFollower.create!(playlist_id: @playlist.id, user_id: @playlist.user_id)
       render "api/playlists/show"
     else
       render json: @playlist.errors.full_messages, status: 410
