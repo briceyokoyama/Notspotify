@@ -23,7 +23,8 @@ const playlistSelector = (playlist) => {
 const mstp = (state, ownProps) => ({
   playlistId: ownProps.match.params.id,
   songs: songsSelector(state.entities.playlistSongs, state.entities.songs, state.ui.playlist),
-  playlist: playlistSelector(state.ui.playlist)
+  playlist: playlistSelector(state.ui.playlist),
+  loading: state.ui.loading.playlistLoading
 })
 
 const mdtp = dispatch => ({

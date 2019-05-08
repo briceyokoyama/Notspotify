@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'taglib'
+# require 'taglib'
+require 'open-uri'
 
 ActiveRecord::Base.transaction do
 
@@ -17,7 +18,7 @@ ActiveRecord::Base.transaction do
   PlaylistSong.destroy_all
   User.destroy_all
   
-  # dir = Rails.root
+  dir = Rails.root
 
   user1 = User.create!({username: "user1", name: "user1name", email: "user1@gmail.com", password: "password" })
   user2 = User.create!({username: "user2", name: "user2name", email: "user2@gmail.com", password: "password" })
@@ -29,7 +30,7 @@ ActiveRecord::Base.transaction do
   # user3.avatar.attach(io: File.open('app/assets/seed_data/user3_avatar.jpg'), filename: 'avatar.jpg')
   # user4.avatar.attach(io: File.open('app/assets/seed_data/user4_avatar.jpg'), filename: 'avatar.jpg')
   # debugger
-  user1.avatar.attach(io: File.open('app/assets/images/user1_avatar.jpg'), filename: 'avatar.jpg')
+  user1.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user1_avatar.jpg"), filename: 'avatar.jpg')
   # user2.avatar.attach(io: File.open('app/assets/images/user2_avatar.jpg'), filename: 'avatar.jpg')
   # user3.avatar.attach(io: File.open('app/assets/images/user3_avatar.jpg'), filename: 'avatar.jpg')
   # user4.avatar.attach(io: File.open('app/assets/images/user4_avatar.jpg'), filename: 'avatar.jpg')
@@ -55,7 +56,7 @@ ActiveRecord::Base.transaction do
   song3 = Song.create!({title: "Don't Wanna Come Down", album_id: album2.id})
   song4 = Song.create!({title: "First Love", album_id: album2.id})
 
-  song1.src.attach(io: File.open('app/assets/seed_data/song1.wav'), filename: 'source.wav')
+  # song1.src.attach(io: File.open(dir + "/app/assets/seed_data/song1.wav"), filename: 'source.wav')
   # debugger
   # song2.src.attach(io: File.open('app/assets/seed_data/louislaroche-signsoflife.flac'), filename: 'source.flac')
   # song3.src.attach(io: File.open('app/assets/seed_data/treysongz-dontwannacomedown.mp3'), filename: 'source.mp3')

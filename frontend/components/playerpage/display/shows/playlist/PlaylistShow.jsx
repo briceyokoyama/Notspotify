@@ -9,13 +9,15 @@ class PlaylistShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylist(this.props.playlistId);
-    this.props.fetchAllSongs();
-    this.props.fetchPlaylistSongs();
+    // this.props.fetchAllSongs();
+    // this.props.fetchPlaylistSongs();
   }
 
 
   render() {
-    // debugger;
+    debugger;
+    if (this.props.loading) return <div>Loading...</div>
+
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
