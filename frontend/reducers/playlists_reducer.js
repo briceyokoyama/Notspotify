@@ -1,14 +1,13 @@
-import { RECEIVE_PLAYLISTS, CREATE_PLAYLIST } from '../actions/playlist_actions';
+import { RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST } from '../actions/playlist_actions';
 
 const playlistsReducer = (state={}, action) => {
   Object.freeze(state);
   let newState;
   switch (action.type) {
+    case RECEIVE_PLAYLIST:
+      return Object.assign({}, state, action.payload.playlist);
     case RECEIVE_PLAYLISTS:
-      return Object.assign({}, state, action.playlists);
-    case CREATE_PLAYLIST:
-      newState = Object.assign({}, state, action.playlist)
-      return newState;
+      return Object.assign({}, state, action.payload.playlists);
     default:
       return state;
   }

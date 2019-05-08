@@ -4,19 +4,14 @@ export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const CREATE_PLAYLIST = "CREATE_PLAYLIST";
 
-const receivePlaylists = (playlists) => ({
+const receivePlaylists = (payload) => ({
   type: RECEIVE_PLAYLISTS,
-  playlists
+  payload
 });
 
-const receivePlaylist = (playlist) => ({
+const receivePlaylist = (payload) => ({
   type: RECEIVE_PLAYLIST,
-  playlist
-})
-
-const createPlaylist = (playlist) => ({
-  type: CREATE_PLAYLIST,
-  playlist
+  payload
 })
 
 export const fetchPlaylists = (user_id) => dispatch => (
@@ -31,5 +26,5 @@ export const fetchPlaylist = (id) => dispatch => (
 
 export const makePlaylist = (playlist) => dispatch => (
   APIUtil.createPlaylist(playlist)
-    .then(playlist => dispatch(createPlaylist(playlist)))
+    .then(playlist => dispatch(receivePlaylist(playlist)))
 );

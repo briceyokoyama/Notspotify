@@ -4,7 +4,7 @@ const filterPlaylistReducer = (state={}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_PLAYLIST:
-      return action.playlist;
+      return action.payload.playlist;
     default:
       return state;
   }
