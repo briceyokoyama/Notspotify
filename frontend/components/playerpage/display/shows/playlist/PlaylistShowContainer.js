@@ -1,29 +1,35 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './PlaylistShow';
 import { fetchPlaylist } from '../../../../../actions/playlist_actions';
-import { fetchSongs } from '../../../../../actions/song_actions';
+import { fetchSongs, fetchAllSongs } from '../../../../../actions/song_actions';
+import { fetchPlaylistSongs } from '../../../../../actions/playlist_songs_actions';
 
-// const songsSelector = (songs) => {
-//   return Object.keys(songs).map(id => {
-//     return songs[id]
-//   })
-// }
+const songsSelector = (playlistSongs, songs, playlist_id) => {
+  let arr = Object.keys(playlistSongs).map(id => {
+    if (playlistSongs[id].playlistId === parseInt(Object.keys(playlist_id)[0])) {
+      // debugger
+      return songs[playlistSongs[id].songId]
+    } else { 
+      return false }
+  }).filter(ele => ele !== false)
+  return arr;
+}
 
 const playlistSelector = (playlist) => {
-  // debugger;
   return (
   Object.keys(playlist).map(id => playlist[id])
 )}
 
 const mstp = (state, ownProps) => ({
   playlistId: ownProps.match.params.id,
-  songs: songsSelector(state.ui.playlist.id),
+  songs: songsSelector(state.entities.playlistSongs, state.entities.songs, state.ui.playlist),
   playlist: playlistSelector(state.ui.playlist)
 })
 
 const mdtp = dispatch => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  fetchSongs: (playlist_id) => dispatch(fetchSongs(playlist_id))
+  fetchAllSongs: () => dispatch(fetchAllSongs()),
+  fetchPlaylistSongs: () => dispatch(fetchPlaylistSongs())
 })
 
 export default connect(mstp, mdtp)(PlaylistShow);

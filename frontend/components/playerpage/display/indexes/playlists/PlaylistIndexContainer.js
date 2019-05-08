@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PlaylistIndex from './PlaylistIndex';
 import { fetchPlaylists, makePlaylist } from '../../../../../actions/playlist_actions';
+import { fetchPlaylistFollowers } from '../../../../../actions/playlist_follower_actions'
 
 const playlistSelector = (playlists, scenario, user_id) => {
   if (scenario === 'library') {
@@ -32,7 +33,8 @@ const mstp = ({entities: {playlists}, session: {id}}, ownProps) => ({
 
 const mdtp = dispatch => ({
   fetchPlaylists: (user_id) => dispatch(fetchPlaylists(user_id)),
-  makePlaylist: playlist => dispatch(makePlaylist(playlist))
+  makePlaylist: playlist => dispatch(makePlaylist(playlist)),
+  fetchPlaylistFollowers: () => dispatch(fetchPlaylistFollowers())
 })
 
 export default connect(mstp, mdtp)(PlaylistIndex);

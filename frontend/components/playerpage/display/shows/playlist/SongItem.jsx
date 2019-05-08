@@ -26,7 +26,6 @@ class SongItem extends React.Component {
 
   render() {
     let {song} = this.props;
-
     return (
       <div className={'song-item'}>
         <div>

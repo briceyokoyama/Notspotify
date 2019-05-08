@@ -27,9 +27,9 @@ export const fetchPlaylists = (user_id) => dispatch => (
 export const fetchPlaylist = (id) => dispatch => (
   APIUtil.fetchPlaylist(id)
     .then(playlist => dispatch(receivePlaylist(playlist)))
-)
+);
 
 export const makePlaylist = (playlist) => dispatch => (
   APIUtil.createPlaylist(playlist)
     .then(playlist => dispatch(createPlaylist(playlist)))
-)
+);

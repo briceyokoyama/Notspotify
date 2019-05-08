@@ -15,6 +15,7 @@ class PlaylistIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylists();
+    // this.props.fetchPlaylistFollowers();
   }
 
   showModal() {
@@ -26,6 +27,7 @@ class PlaylistIndex extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <>
         <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}/>

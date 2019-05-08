@@ -9,8 +9,8 @@ class PlaylistShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylist(this.props.playlistId);
-    this.props.fetchSongs(this.props.playlistId);
-    this.props.fetchPlaylistSongs(this.props.playlistId);
+    this.props.fetchAllSongs();
+    this.props.fetchPlaylistSongs();
   }
 
 
@@ -19,10 +19,10 @@ class PlaylistShow extends React.Component {
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
-          {this.props.playlist.map(playlist => <PlaylistShowDetail playlist={playlist} />)}
+          {this.props.playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} />)}
         </div>
         <div className={'song-list-container'}>
-          {this.props.songs.map(song => <SongItem song={song}/>)}
+          {this.props.songs.map(song => <SongItem key={song.id} song={song}/>)}
         </div>
       </div>
     )
