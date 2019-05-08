@@ -1,9 +1,94 @@
 .playlist-show-container {
-  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -40px;
+  // border: 0.5px solid red;
+  display: grid;
+  grid-template-columns: 37% 63%;
+
 }
 .playlist-info-container {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-end;
+  // border: 0.5px solid red;
 }
+
 .song-list-container {
-  border: 1px solid red;
+  margin-left: 50px;
 }
+
+.song-item {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-info-container {
+  height: 50px;
+  width: 100%;
+  // border: 0.5px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+.song-other-info {
+  span {
+    font-size: 13px;
+    font-weight: 300;
+  }
+}
+
+.playlist-details {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-right: 80px;
+
+  div {
+    text-align: center;
+  }
+
+  button {
+    @extend %small-button
+  }
+}
+
+.playlist-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.playlist-show-creator {
+  font-size: 0.85em;
+  color: #b3b3b3;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.playlist-show-button-container {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.playlist-length {
+  font-size: 0.85em;
+  color: #b3b3b3;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.song-dropdown

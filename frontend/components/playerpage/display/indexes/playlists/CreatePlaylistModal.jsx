@@ -12,7 +12,6 @@ class CreatePlaylistModal extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // = ({ handleClose, show, action, currentUser }) =>
 
   handleInput() {
     return (e) => this.setState({ title: e.target.value })

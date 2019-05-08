@@ -14,21 +14,7 @@ class PlaylistIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.scenario === 'library') {
-      this.props.fetchPlaylists(this.props.currentUserId);
-    } else {
-      this.props.fetchPlaylists();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    // debugger;
-    if (this.props.scenario !== prevProps.scenario)
-    if (this.props.scenario === 'library') {
-      this.props.fetchPlaylists(this.props.currentUserId);
-    } else {
-      this.props.fetchPlaylists();
-    }
+    this.props.fetchPlaylists();
   }
 
   showModal() {
@@ -42,8 +28,7 @@ class PlaylistIndex extends React.Component {
   render() {
     return (
       <>
-        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}>
-        </CreatePlaylistModal>
+        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}/>
         { (this.props.match.params.main === 'library') ? (
           <div className={'playlist-create-button-holder'}>
             <button className={'playlist-create-button'} onClick={this.showModal}>
@@ -60,7 +45,6 @@ class PlaylistIndex extends React.Component {
       </>
     )
   }
-
 }
 
 export default PlaylistIndex;

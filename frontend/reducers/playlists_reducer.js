@@ -5,7 +5,7 @@ const playlistsReducer = (state={}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_PLAYLISTS:
-      return action.playlists;
+      return Object.assign({}, state, action.playlists);
     case CREATE_PLAYLIST:
       newState = Object.assign({}, state, action.playlist)
       return newState;

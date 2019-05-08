@@ -15,7 +15,7 @@ class PlayerDisplay extends React.Component {
     return (
       <div className='player-main-display-container'>
         <Route path='/(home|library)' component={PlayerDisplayNavContainer}/>
-        <div className={'player-display-index-container'}>
+        <div className={'player-display-container'}>
         <Switch>
           <Route path='/playlists/:id' component={PlaylistShowContainer} />
           <Route path='/:main/playlists' component={PlaylistIndexContainer} />

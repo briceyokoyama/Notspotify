@@ -19,11 +19,6 @@
         flex-direction: column;
         align-items: center;
         a{
-          
-          img {
-            height: 220px;
-            width: 220px;     
-          }
   
           img:hover {
             cursor: pointer;
@@ -50,6 +45,16 @@
       }
     }
   }
+}
+
+.playlist-image {
+  height: 220px;
+  width: 220px;     
+}
+
+.playlist-image-large {
+  height: 330px;
+  width: 330px;
 }
 
 .playlist-creator {
