@@ -6,7 +6,11 @@
      case PLAY_SONG:
        return true;
       case RESUME_SONG:
-        return true;
+        if (!action.currentSong && !action.isPlaying) {
+          return false;
+        } else {
+          return true;
+        }
       case PAUSE_SONG:
         return false;
      default:
