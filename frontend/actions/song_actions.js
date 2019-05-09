@@ -20,12 +20,21 @@ const receiveAllSongs = (songs) => ({
 })
 
 export const playSong = (payload) => {
-  let audio = document.getElementsByClassName('react-audio-player');
-  audio[0].setAttribute('src', payload.song.src);
-  audio[0].play();
+  let audio = document.getElementsByClassName('react-audio-player')[0];
+  audio.setAttribute('src', payload.song.src);
+  audio.play();
+  audio.onloadedmetadata = function() {
+    let durationEl = document.getElementById('song-duration');
+    let minutes = Math.floor(audio.duration/60);
+    let seconds = Math.floor(audio.duration%60);
+    durationEl.innerText = minutes + ":" + seconds;
+  }
+  debugger;
   return (
-    {type: PLAY_SONG,
-      payload}
+    {
+      type: PLAY_SONG,
+      payload: payload
+    }
   )
 }
 
@@ -37,21 +46,25 @@ export const pauseSong = () => {
 
 export const nextSong = ({songs, index, looping, random}) => {
   let audio = document.getElementsByClassName('react-audio-player');
+  let newIndex = index + 1;
   if (looping) {
     if ((index + 1) === songs.length) {
-      let newIndex = 0;
-      audio[0].setAttribute('src', songs[newIndex].src);
+      newIndex = 0;
     }
   }
   if (random) {
-    let newIndex = Math.floor(songs.length*Math.random());
-    audio[0].setAttribute('src', songs[newIndex].src);
+    newIndex = Math.floor(songs.length*Math.random());
+
   }
 
+  audio[0].setAttribute('src', songs[newIndex].src);
   audio[0].play();
   return (
-    {type: NEXT_SONG,
-    index: newIndex}
+    {
+      type: NEXT_SONG,
+      index: newIndex,
+      nextSong: {id: songs[newIndex].id, duration: audio[0].duration}
+    }
   )
 }
 
@@ -63,6 +76,10 @@ export const resumeSong = (payload) => {
     isPlaying: payload.isPlaying,
     currentSong: payload.currentSong}
   )
+}
+
+export const previousSong = (prevSong) => {
+  
 }
 
 export const toggleLooping = (isLooping) => {

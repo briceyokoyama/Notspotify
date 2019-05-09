@@ -30,18 +30,18 @@ ActiveRecord::Base.transaction do
   # user3.avatar.attach(io: File.open('app/assets/seed_data/user3_avatar.jpg'), filename: 'avatar.jpg')
   # user4.avatar.attach(io: File.open('app/assets/seed_data/user4_avatar.jpg'), filename: 'avatar.jpg')
   # debugger
-  user1.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user1_avatar.jpg"), filename: 'avatar.jpg')
-  user2.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user2_avatar.jpg"), filename: 'avatar.jpg')
-  user3.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user3_avatar.jpg"), filename: 'avatar.jpg')
-  user4.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user4_avatar.jpg"), filename: 'avatar.jpg')
+  user1.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user1-avatar.jpg"), filename: 'avatar.jpg')
+  user2.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user2-avatar.jpg"), filename: 'avatar.jpg')
+  user3.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user3-avatar.jpg"), filename: 'avatar.jpg')
+  user4.avatar.attach(io: open("https://s3-us-west-1.amazonaws.com/notspotify-pro/user4-avatar.jpg"), filename: 'avatar.jpg')
 
 
   artist1 = Artist.create!({name: "Louis La Roche"})
   artist2 = Artist.create!({name: "Trey Songz"})
   artist3 = Artist.create!({name: "Nujabes"})
 
-  artist1.avatar.attach(open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist1_avatar.jpg'), filename: 'avatar.jpg')
-  artist2.avatar.attach(open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist2_avatar.jpg'), filename: 'avatar.jpg')
+  artist1.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist1_avatar.jpg'), filename: 'avatar.jpg')
+  artist2.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist2_avatar.jpg'), filename: 'avatar.jpg')
   # artist1.avatar.attach(io: File.open(dir + 'storage/artist1_avatar.jpg'), filename: 'avatar.jpg')
   # artist2.avatar.attach(io: File.open(dir + 'storage/artist2_avatar.jpg'), filename: 'avatar.jpg')
 
@@ -62,8 +62,8 @@ ActiveRecord::Base.transaction do
 
   song1.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/Louis+La+Roche+-+R+E+D+G+I+A+N+T+S+-+01+Signs+Of+Life+(2013).flac'), filename: 'song.mp3')
   song2.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/Louis+La+Roche+-+R+E+D+G+I+A+N+T+S+-+02+Dancin\'+Shoes+(2014).flac'), filename: 'song.mp3')
-  song3.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/Trey+Songz+-+Dont+Wanna+Come+Down.mp3'), filename: 'song.mp3')
-  song4.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/Trey+Songz+-+First+Love.mp3'), filename: 'song.mp3')
+  song3.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/15-trey_songz-dont_wanna_come_down.mp3'), filename: 'song.mp3')
+  song4.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/Trey+Songz-+First+Love+%5B%2B+lyrics%5D.mp3'), filename: 'song.mp3')
   song5.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/03+Aruarian+Dance.mp3'), filename: 'song.mp3')
 
   # song1.src.attach(io: File.open(dir + "/app/assets/seed_data/song1.wav"), filename: 'source.wav')

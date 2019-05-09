@@ -48,10 +48,18 @@ class PlayBar extends React.Component {
             <i className="fa fa-step-forward small-icon" aria-hidden="true" onClick={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom})}/>
             <i className={`fa fa-repeat small-icon ${isLooping ? 'green' : null}`} aria-hidden="true" onClick={this.toggleLooping}></i>
           </div>
-          <div className='meter animate'>
-            <span><span></span></span>
+          <div className='playbar-time-info'>
+            <div id='song-current-time'>
+              0:00
+            </div>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+            </div>
+            <div id='song-duration'>
+              0:00
+            </div>
+            <ReactAudioPlayer />  
           </div>
-          <ReactAudioPlayer />    
         </div>
         <div className={'playbar-controls'}>
 

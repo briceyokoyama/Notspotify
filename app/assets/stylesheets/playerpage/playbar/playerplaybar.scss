@@ -11,6 +11,47 @@
   align-content: center;
   z-index: 1;
 
+  .slider {
+    -webkit-appearance: none;
+    min-width: 100%;
+    width: 300%;
+    transform: translate(-33%, 0);
+    height: 6px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    display: inline-block;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .slider::-moz-range-thumb {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .slide-container {
+    width: 100%;
+  }
+
   .current-song-info {
     display:flex;
     align-items: center;
@@ -45,7 +86,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 600px;
+
+    .playbar-time-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      #song-duration, #song-current-time {
+        font-size: 0.85em;
+        font-weight: 100;
+      }
+    }
+
     .main-buttons {
       display: flex;
       align-items: center;

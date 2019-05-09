@@ -12,9 +12,9 @@ const getCurrentAlbum = (songs, currentSongId, albums) => {
 }
 
 const mstp = (state, ownProps) => ({
-  currentSong: state.entities.songs[state.ui.currentSong],
+  currentSong: state.entities.songs[state.ui.currentSong.id],
   isPlaying: state.ui.isPlaying,
-  currentAlbum: getCurrentAlbum(state.entities.songs, state.ui.currentSong, state.entities.albums),
+  currentAlbum: getCurrentAlbum(state.entities.songs, state.ui.currentSong.id, state.entities.albums),
   currentIndex: state.ui.index,
   currentPlaylist: state.ui.songs,
   playbar: state.ui.playbarControls

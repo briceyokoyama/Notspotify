@@ -9,7 +9,7 @@ const indexReducer = (state = null, action) => {
       if (state === null) {
         return state
       } else {
-        return action.newIndex;
+        return action.index;
       }
     default:
       return state;
