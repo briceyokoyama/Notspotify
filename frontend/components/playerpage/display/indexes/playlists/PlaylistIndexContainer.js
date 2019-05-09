@@ -5,7 +5,6 @@ import { fetchPlaylistFollowers } from '../../../../../actions/playlist_follower
 
 const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
   if (scenario === 'library') {
-    debugger;
     return Object.values(playlistFollowers)
       .filter(follow => follow.userId === user_id)
       .map(follow => playlists[follow.playlistId])
@@ -18,10 +17,6 @@ const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
     return Object.keys(playlists).map(id => playlists[id])
   }
   
-  //filter here based on current user??
-  //object.values
-  //filter where userID == current_userId
-  //update reducer to merge rather than overwrite
   //react audio player
   //ui songs slice of state
   //current song slice of state

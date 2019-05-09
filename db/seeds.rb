@@ -37,6 +37,7 @@ ActiveRecord::Base.transaction do
 
   artist1 = Artist.create!({name: "Louis La Roche"})
   artist2 = Artist.create!({name: "Trey Songz"})
+  artist3 = Artist.create!({name: "Nujabes"})
 
   # artist1.avatar.attach(io: File.open('app/assets/seed_data/artist1_avatar.jpg'), filename: 'avatar.jpg')
   # artist2.avatar.attach(io: File.open('app/assets/seed_data/artist2_avatar.jpg'), filename: 'avatar.jpg')
@@ -45,6 +46,7 @@ ActiveRecord::Base.transaction do
 
   album1 = Album.create!({title: "R E D G I A N T S", artist_id: artist1.id, year: 2016})
   album2 = Album.create!({title: "Singles", artist_id: artist2.id, year: 2018})
+  album3 = Album.create!({title: "Singles", artist_id: artist3.id, year: 2014})
 
   # album1.cover.attach(io: File.open('app/assets/seed_data/album1_cover.jpg'), filename: 'cover.jpg')
   # album2.cover.attach(io: File.open('app/assets/seed_data/album2_cover.jpg'), filename: 'cover.jpg')
@@ -55,6 +57,13 @@ ActiveRecord::Base.transaction do
   song2 = Song.create!({title: "Dancin' Shoes", album_id: album1.id})
   song3 = Song.create!({title: "Don't Wanna Come Down", album_id: album2.id})
   song4 = Song.create!({title: "First Love", album_id: album2.id})
+  song5 = Song.create!({title: "Aruarian Dance", album_id: album3.id})
+
+  song1.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-dev/Louis+La+Roche+-+R+E+D+G+I+A+N+T+S+-+01+Signs+Of+Life+(2013).flac'), filename: 'song.mp3')
+  song2.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-dev/Louis+La+Roche+-+R+E+D+G+I+A+N+T+S+-+02+Dancin\'+Shoes+(2014).flac'), filename: 'song.mp3')
+  song3.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-dev/Trey+Songz+-+Dont+Wanna+Come+Down.mp3'), filename: 'song.mp3')
+  song4.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-dev/Trey+Songz+-+First+Love.mp3'), filename: 'song.mp3')
+  song5.src.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-dev/03+Aruarian+Dance.mp3'), filename: 'song.mp3')
 
   # song1.src.attach(io: File.open(dir + "/app/assets/seed_data/song1.wav"), filename: 'source.wav')
   # debugger
@@ -76,11 +85,13 @@ ActiveRecord::Base.transaction do
   # playlist 1
   PlaylistSong.create!(playlist_id: playlist1.id, song_id: song1.id)
   PlaylistSong.create!(playlist_id: playlist1.id, song_id: song3.id)
-  PlaylistSong.create!(playlist_id: playlist1.id, song_id: song4.id)
+  PlaylistSong.create!(playlist_id: playlist1.id, song_id: song4.id )
+  PlaylistSong.create!(playlist_id: playlist1.id, song_id: song5.id )
 
   # playlist 2
   PlaylistSong.create!(playlist_id: playlist2.id, song_id: song1.id)
-  PlaylistSong.create!(playlist_id: playlist2.id, song_id: song2.id)
+  PlaylistSong.create!(playlist_id: playlist2.id, song_id: song2.id )
+  PlaylistSong.create!(playlist_id: playlist2.id, song_id: song5.id )
 
   # playlist 3
   PlaylistSong.create!(playlist_id: playlist3.id, song_id: song1.id)

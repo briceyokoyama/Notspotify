@@ -26,6 +26,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  
+  .buttons {
+    height: 100%;
+    font-size: 24px;
+    width: 50px;
+    vertical-align: center;
+
+    .hidden {
+      display: none;
+    }
+  }
 }
 
 .song-info-container {

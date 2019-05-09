@@ -27,7 +27,6 @@ class PlaylistIndex extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <>
         <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}/>

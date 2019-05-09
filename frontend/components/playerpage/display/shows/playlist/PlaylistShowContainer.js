@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './PlaylistShow';
 import { fetchPlaylist } from '../../../../../actions/playlist_actions';
-import { fetchSongs, fetchAllSongs } from '../../../../../actions/song_actions';
+import { playSong, fetchAllSongs, stopSong } from '../../../../../actions/song_actions';
 import { fetchPlaylistSongs } from '../../../../../actions/playlist_songs_actions';
 
 const songsSelector = (playlistSongs, songs, playlist_id) => {
   let arr = Object.keys(playlistSongs).map(id => {
     if (playlistSongs[id].playlistId === parseInt(Object.keys(playlist_id)[0])) {
-      // debugger
       return songs[playlistSongs[id].songId]
     } else { 
       return false }
@@ -30,7 +29,8 @@ const mstp = (state, ownProps) => ({
 const mdtp = dispatch => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
   fetchAllSongs: () => dispatch(fetchAllSongs()),
-  fetchPlaylistSongs: () => dispatch(fetchPlaylistSongs())
+  fetchPlaylistSongs: () => dispatch(fetchPlaylistSongs()),
+  playSong: (song) => dispatch(playSong(song)),
 })
 
 export default connect(mstp, mdtp)(PlaylistShow);

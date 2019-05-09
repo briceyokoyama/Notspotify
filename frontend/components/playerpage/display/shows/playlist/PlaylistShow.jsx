@@ -9,22 +9,18 @@ class PlaylistShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylist(this.props.playlistId);
-    // this.props.fetchAllSongs();
-    // this.props.fetchPlaylistSongs();
   }
 
-
   render() {
-    debugger;
-    if (this.props.loading) return <div>Loading...</div>
+    if (this.props.loading) return <div></div>
 
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
-          {this.props.playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} />)}
+          {this.props.playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} songs={this.props.songs} playSong={this.props.playSong} />)}
         </div>
         <div className={'song-list-container'}>
-          {this.props.songs.map(song => <SongItem key={song.id} song={song}/>)}
+          {this.props.songs.map((song, idx) => <SongItem key={song.id} song={song} songs={this.props.songs} playSong={this.props.playSong} index={idx} />)}
         </div>
       </div>
     )
