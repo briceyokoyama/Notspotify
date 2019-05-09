@@ -8,20 +8,20 @@ class PlayBar extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.props.getAlbums();
   }
 
   render() {
-    let {currentSong, isPlaying} = this.props
+    let {currentSong, isPlaying, currentAlbum} = this.props;
+    let albumCover = currentAlbum ? currentAlbum.coverUrl : null
+    debugger;
     return (
       <div className="player-playbar-container">
         <div className='current-song-info'>
-          <img></img>
+          <img src={albumCover}></img>
           <div>
-            {/* { (currentSong) ? <div className={'current-song-title'}>{currentSong.title}</div> : null }
-            { (currentSong) ? <div className={'current-song-artist'}>{currentSong.artist}</div> : null } */}
-            <div className={'current-song-title'}>{'Test Title'}</div>
-            <div className={'current-song-artist'}>{'Test Artist'}</div>
+            { (currentSong) ? <div className={'current-song-title'}>{currentSong.title}</div> : null }
+            { (currentSong) ? <div className={'current-song-artist'}>{currentSong.artist}</div> : null }
           </div>
         </div>
         <div className={'player-wrapper'}>
