@@ -35,11 +35,24 @@ export const pauseSong = () => {
   return {type: PAUSE_SONG}
 }
 
-export const nextSong = (payload) => {
+export const nextSong = ({songs, index, looping, random}) => {
   let audio = document.getElementsByClassName('react-audio-player');
-  audio[0].setAttribute('src', payload.songs[index+1].src);
+  if (looping) {
+    if ((index + 1) === songs.length) {
+      let newIndex = 0;
+      audio[0].setAttribute('src', songs[newIndex].src);
+    }
+  }
+  if (random) {
+    let newIndex = Math.floor(songs.length*Math.random());
+    audio[0].setAttribute('src', songs[newIndex].src);
+  }
+
   audio[0].play();
-  return {type: NEXT_SONG}
+  return (
+    {type: NEXT_SONG,
+    index: newIndex}
+  )
 }
 
 export const resumeSong = (payload) => {
