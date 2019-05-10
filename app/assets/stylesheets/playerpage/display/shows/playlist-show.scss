@@ -39,10 +39,26 @@
       display: none;
     }
   }
+  .options {
+    display: none;
+    padding-right: 15px;
+  }
 }
 
 .song-item:hover {
   box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.2);
+
+  .options {
+    display: inline-block;
+  }
+
+  .fa-music {
+    display: none;
+  }
+
+  .fa-play-circle-o {
+    display: block;
+  }
 }
 
 .song-info-container {
@@ -109,9 +125,14 @@
 }
 
 .song-dropdown {
-  position: relative;
+  position: absolute;
   background: grey;
   font-size: 13px;
   font-weight: 100;
   padding: 5px;
+}
+
+.song-dropdown:hover {
+  filter: brightness(0.75);
+  cursor: pointer;
 }

@@ -18,6 +18,7 @@ class PlayerDisplay extends React.Component {
         <div className={'player-display-container'}>
         <Switch>
           <Route path='/playlists/:id' component={PlaylistShowContainer} />
+          <Route path='/songs/' component={PlaylistShowContainer} />
           <Route path='/:main/playlists' component={PlaylistIndexContainer} />
           <Route path='/:main/artists' component={ArtistIndexContainer} />
         </Switch>

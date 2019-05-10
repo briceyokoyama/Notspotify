@@ -8,22 +8,9 @@ const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
     return Object.values(playlistFollowers)
       .filter(follow => follow.userId === user_id)
       .map(follow => playlists[follow.playlistId])
-
-    
-    // return Object.keys(playlists).map(id => {
-    //   return playlists[id].userId === user_id ? playlists[id] : false
-    // }).filter(ele => ele !== false)
   } else {
     return Object.keys(playlists).map(id => playlists[id])
   }
-  
-  //react audio player
-  //ui songs slice of state
-  //current song slice of state
-  //current song next song
-  //update ui with array of playlist songs
-  //event listener from the react audio player for telling when song is over(?) OnEnded{Function}
-
 }
 
 const mstp = ({entities: {playlists, playlistFollowers}, session: {id}}, ownProps) => ({

@@ -17,7 +17,6 @@ class PlayerDisplayNav extends React.Component {
       <div className={'player-display-nav-container'}>
         <ul>
           {this.props.headings.map((heading, idx) => {
-            // debugger;
             return (
             <li key={idx} onClick={this.handleClick(heading)}>{heading}</li>
             )}

@@ -5,7 +5,7 @@ import PlayerDisplayNav from './PlayerDisplayNav';
 const mstp = (state, ownProps) => {
   
 return ({
-  headings: ['PLAYLISTS', 'ARTISTS']
+  headings: ['PLAYLISTS', 'ARTISTS', 'SONGS']
 })
 
 }

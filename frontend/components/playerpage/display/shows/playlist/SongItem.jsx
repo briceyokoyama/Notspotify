@@ -35,8 +35,8 @@ class SongItem extends React.Component {
     return (
       <div className={'song-item'}>
         <div className={'buttons'}>
-          <i className="fa fa-music hidden" aria-hidden="true"></i>
-          <i className="fa fa-play-circle-o" aria-hidden="true" onClick={this.playSong}/>
+          <i className="fa fa-music" aria-hidden="true"></i>
+          <i className="fa fa-play-circle-o hidden" aria-hidden="true" onClick={this.playSong}/>
         </div>
         <div className={'song-info-container'}>
           <div className={'song-title'}>
@@ -54,8 +54,8 @@ class SongItem extends React.Component {
         </div>
         <div className={'options'} onClick={this.showDropdown}>
           {'...'}
+          <SongDropdown show={this.state.showDropdown}/>
         </div>
-        <SongDropdown show={this.state.showDropdown}/>
       </div>
     )
   }
