@@ -7,7 +7,10 @@ const Footer = () => (
       <svg className={'home-nav-logo'}></svg>
       <div className={'home-nav-title'}>Notspotify</div>
     </Link>
-    Content here
+    <div className={'links'}>
+      <a href={'https://github.com/briceyokoyama'}><i class="fa fa-github big-icon" aria-hidden="true"></i></a>
+      <a href={'https://www.linkedin.com/in/brice-yokoyama/'}><i class="fab fa-linkedin-in big-icon"></i></a>
+    </div>
   </div>
 )
 
