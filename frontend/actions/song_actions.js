@@ -27,9 +27,8 @@ export const playSong = (payload) => {
     let durationEl = document.getElementById('song-duration');
     let minutes = Math.floor(audio.duration/60);
     let seconds = Math.floor(audio.duration%60);
-    durationEl.innerText = minutes + ":" + seconds;
+    durationEl.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
-  debugger;
   return (
     {
       type: PLAY_SONG,

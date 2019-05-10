@@ -13,7 +13,23 @@ class PlayBar extends React.Component {
 
   componentDidMount() {
     this.props.getAlbums();
+    let audio = document.getElementsByClassName('react-audio-player')[0];
+    audio.addEventListener('timeupdate', this.updateProgress, false);
   }
+
+  updateProgress() {
+    var progress = document.getElementById("progress");
+    var currTime = document.getElementById('song-current-time')
+    var value = 0;
+    let audio = document.getElementsByClassName('react-audio-player')[0];
+    if (audio.currentTime > 0) {
+       value = Math.floor((100 / audio.duration) * audio.currentTime);
+       let minutes = Math.floor(audio.currentTime/60);
+       let seconds = Math.floor(audio.currentTime%60);
+       currTime.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+    progress.style.width = value + "%";
+ }
 
   toggleRandom() {
     this.props.toggleRandom(this.props.playbar.isRandom);
@@ -52,8 +68,9 @@ class PlayBar extends React.Component {
             <div id='song-current-time'>
               0:00
             </div>
-            <div class="slidecontainer">
-              <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+            <div id="progressBar">
+              <span id="progress">
+              </span>
             </div>
             <div id='song-duration'>
               0:00

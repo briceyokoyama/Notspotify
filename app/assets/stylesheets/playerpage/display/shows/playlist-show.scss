@@ -21,7 +21,8 @@
 }
 
 .song-item {
-  margin-bottom: 15px;
+  padding-top: 4px;
+  padding-bottom: 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,12 +32,17 @@
     height: 100%;
     font-size: 24px;
     width: 50px;
+    padding-left: 10px !important;
     vertical-align: center;
 
     .hidden {
       display: none;
     }
   }
+}
+
+.song-item:hover {
+  box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 .song-info-container {
@@ -103,5 +109,9 @@
 }
 
 .song-dropdown {
-  
+  position: relative;
+  background: grey;
+  font-size: 13px;
+  font-weight: 100;
+  padding: 5px;
 }
