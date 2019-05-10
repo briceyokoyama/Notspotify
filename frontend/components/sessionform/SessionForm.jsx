@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    this.props.processForm({username: 'user4', password: 'password'});
+    this.props.processForm({username: 'T-dawg', password: 'password'});
   }
 
   hasErrors(type) {

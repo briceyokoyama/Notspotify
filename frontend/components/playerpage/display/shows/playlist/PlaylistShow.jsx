@@ -24,8 +24,7 @@ class PlaylistShow extends React.Component {
           {this.props.playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} songs={this.props.songs} playSong={this.props.playSong} />)}
         </div>
         <div className={'song-list-container'}>
-          {this.props.songs.map((song, idx) => <SongItem key={song.id} song={song} songs={this.props.songs} playSong={this.props.playSong} index={idx}
-          onMouseEnter={this.someHandler} onMouseLeave={this.someOtherHandler}/>)}
+          {this.props.songs.map((song, idx) => <SongItem key={song.id} song={song} songs={this.props.songs} playSong={this.props.playSong} index={idx} />)}
         </div>
       </div>
     )
