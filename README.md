@@ -11,7 +11,7 @@ AWS S3 is used to host the main media files (artist, playlist, and album art as 
 React and Redux are used to manage the state of the front end alongside HTML5 and SASS for styling.
   
 ![](./readme/splashpage.PNG)
-  
+
 ## Features
 
 ### Playlist Index (All playlists and followed playlists)
