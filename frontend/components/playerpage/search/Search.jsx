@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      searchTerm: ''
+      searchTerm: props.match.params.searchTerm ? props.match.params.searchTerm : ''
     }
   }
 
@@ -16,6 +16,14 @@ class Search extends React.Component {
   handleInput() {
     return (e) => {
       this.setState({searchTerm: e.target.value})
+      // this.props.
+      console.log(this.props);
+
+      if (e.target.value === '') {
+        this.props.history.push('/search')
+      } else {
+        this.props.history.push(`/search/results/${e.target.value}`)
+      }
     }
   }
 
@@ -24,9 +32,11 @@ class Search extends React.Component {
       <div className="search-main-container">
         <div className="search-display-container">
           <div className="search-entry">
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" placeholder={'Start typing...'} value={this.state.searchTerm} onChange={this.handleInput()}/>
-            </form>
+            <div className="search-entry-spacing">
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder={'Start typing...'} value={this.state.searchTerm} onChange={this.handleInput()}/>
+              </form>
+            </div>
           </div>
         </div>
       </div>

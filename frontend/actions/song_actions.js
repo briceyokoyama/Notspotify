@@ -95,12 +95,17 @@ export const toggleRandom = (isRandom) => {
   })
 }
 
-
-
 export const fetchSongs = (playlistId) => dispatch => (
   APIUtil.fetchSongs(playlistId)
     .then(songs => dispatch(receiveSongs(songs)))
 );
+
+export const searchSongs = (query) => (
+  $.ajax({
+    method: `GET`,
+    url: `/api/songs?search=${query}`
+  })
+)
 
 export const fetchAllSongs = () => dispatch => (
   APIUtil.fetchSongs()
