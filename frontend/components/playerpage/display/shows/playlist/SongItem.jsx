@@ -1,5 +1,6 @@
 import React from 'react';
 import SongDropdown from './SongDropdown';
+import AddSongModal from './AddSongModal';
 // import { playSelectedSong } from '../../../../../actions/song_actions';
 
 class SongItem extends React.Component {

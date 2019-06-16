@@ -4,6 +4,7 @@ import PlayerNavBarContainer from './navbar/PlayerNavBarContainer';
 import PlayBarContainer from './playbar/PlayBarContainer';
 import PlaylistShowContainer from './display/shows/playlist/PlaylistShowContainer';
 import PlayerDisplay from './display/PlayerDisplay';
+import SearchContainer from './search/SearchContainer';
 
 const PlayerPage = () => {
   return (
@@ -11,6 +12,7 @@ const PlayerPage = () => {
       <PlayerNavBarContainer />
       <PlayBarContainer />
       <Switch>
+        <Route path='/search' component={SearchContainer} />
         <Route path='playlists/:playlistId' component={PlaylistShowContainer} />
         <Route path='/' component={PlayerDisplay} />
       </Switch>
