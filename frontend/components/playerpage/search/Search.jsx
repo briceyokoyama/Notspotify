@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      searchTerm: props.match.params.searchTerm ? props.match.params.searchTerm : ''
+      searchTerm: props.match.params.searchTerm
     }
   }
 
@@ -16,18 +16,18 @@ class Search extends React.Component {
   handleInput() {
     return (e) => {
       this.setState({searchTerm: e.target.value})
-      // this.props.
-      console.log(this.props);
-
       if (e.target.value === '') {
         this.props.history.push('/search')
       } else {
         this.props.history.push(`/search/results/${e.target.value}`)
+        this.props.searchSongs(e.target.value.toLowerCase());
+        this.props.searchAlbums(e.target.value.toLowerCase());
       }
     }
   }
 
   render() {
+    console.log("props: ", this.props);
     return (
       <div className="search-main-container">
         <div className="search-display-container">

@@ -100,12 +100,10 @@ export const fetchSongs = (playlistId) => dispatch => (
     .then(songs => dispatch(receiveSongs(songs)))
 );
 
-export const searchSongs = (query) => (
-  $.ajax({
-    method: `GET`,
-    url: `/api/songs?search=${query}`
-  })
-)
+export const searchSongs = (query) => dispatch => (
+  APIUtil.searchSongs(query)
+    .then(songs => dispatch(receiveSongs(songs)))
+);
 
 export const fetchAllSongs = () => dispatch => (
   APIUtil.fetchSongs()

@@ -28,8 +28,6 @@ const mstp = (state, ownProps) => ({
 
 const mdtp = dispatch => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  fetchAllSongs: () => dispatch(fetchAllSongs()),
-  fetchPlaylistSongs: () => dispatch(fetchPlaylistSongs()),
   playSong: (song) => dispatch(playSong(song)),
 })
 
