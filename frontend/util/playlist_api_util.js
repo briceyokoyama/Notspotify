@@ -6,6 +6,14 @@ export const fetchPlaylists = (user_id) => (
   })
 )
 
+export const searchPlaylists = (query) => (
+  $.ajax({
+    method: `GET`,
+    url: `/api/playlists`,
+    data: {search: query}
+  })
+)
+
 export const fetchPlaylist = (id) => (
   $.ajax({
     method: `GET`,

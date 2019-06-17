@@ -1,16 +1,34 @@
 import React from 'react';
+import SearchResults from './SearchResults';
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      searchTerm: props.match.params.searchTerm
+      searchTerm: props.match.params.searchTerm,
+      headings: []
     }
   }
 
-  onSubmit() {
-    return;
+  componentDidUpdate(prevProps) {
+
+    if (this.props !== prevProps) {
+      let headings = [];
+      if (this.props.artists.length !== 0) {
+        headings.push('ARTISTS')
+      }
+      if (this.props.albums.length !== 0) {
+        headings.push('ALBUMS')
+      }
+      if (this.props.playlists.length !== 0) {
+        headings.push('PLAYLISTS')
+      }
+      if (this.props.songs.length !== 0) {
+        headings.push('SONGS')
+      }
+      this.setState({headings});
+    }
   }
 
   handleInput() {
@@ -22,6 +40,8 @@ class Search extends React.Component {
         this.props.history.push(`/search/results/${e.target.value}`)
         this.props.searchSongs(e.target.value.toLowerCase());
         this.props.searchAlbums(e.target.value.toLowerCase());
+        this.props.searchArtists(e.target.value.toLowerCase());
+        this.props.searchPlaylists(e.target.value.toLowerCase());
       }
     }
   }
@@ -38,6 +58,7 @@ class Search extends React.Component {
               </form>
             </div>
           </div>
+          <SearchResults headings={this.state.headings}/>
         </div>
       </div>
     )

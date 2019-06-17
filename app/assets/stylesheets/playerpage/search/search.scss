@@ -1,7 +1,8 @@
 .search-main-container {
   height: 100vh;
   width: 100%;
-  padding-bottom: 90px;
+  padding-bottom: 91px;
+  box-sizing: border-box;
   background-image: radial-gradient(farthest-corner at 0px 0px, #101313 35%, black 80%);
   overflow: hidden;
 }
@@ -39,6 +40,40 @@
       background-color: inherit;
       border: none;
       font-size: 36px;
+    }
+  }
+}
+
+.search-results-container {
+  width: 100%;
+  height: calc(100vh - 161px);
+}
+
+.search-results-navbar {
+
+}
+
+.search-display-nav-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-top: 35px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  ul {
+    height: fit-content;
+    li {
+      color: grey;
+      display: inline;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 0 25px;
+      transition: 0.25s;
+    }
+
+    li:hover {
+      color: white;
+      cursor: pointer;
     }
   }
 }
