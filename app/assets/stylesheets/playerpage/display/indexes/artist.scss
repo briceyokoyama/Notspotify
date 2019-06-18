@@ -1,0 +1,52 @@
+.artist-index {
+  width: 100%;
+  max-width: inherit;
+  display: flex;
+  align-self: center;
+  ul {
+    width: 100%;
+    padding-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    li {
+      margin: 10px 7px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a{
+  
+          img:hover {
+            cursor: pointer;
+          }
+  
+          .artist-name {
+            display: block;
+            color: white;
+            font-weight: 500;
+            font-size: .8em;
+            margin: 10px 7px;
+            align-self: center;
+          }
+  
+          .artist-name:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      div:hover {
+        img {
+          filter:brightness(.8)
+        }
+      }
+    }
+  }
+}
+
+.artist-image {
+  height: 220px;
+  width: 220px;     
+}

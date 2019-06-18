@@ -11,6 +11,12 @@ class Search extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.match.params.searchTerm) {
+      this.performSearch(this.props.match.params.searchTerm)
+    }
+  }
+
   componentDidUpdate(prevProps) {
 
     if (this.props !== prevProps) {
@@ -38,16 +44,19 @@ class Search extends React.Component {
         this.props.history.push('/search')
       } else {
         this.props.history.push(`/search/results/${e.target.value}`)
-        this.props.searchSongs(e.target.value.toLowerCase());
-        this.props.searchAlbums(e.target.value.toLowerCase());
-        this.props.searchArtists(e.target.value.toLowerCase());
-        this.props.searchPlaylists(e.target.value.toLowerCase());
+        this.performSearch(e.target.value);
       }
     }
   }
 
+  performSearch(searchTerm) {
+    this.props.searchSongs(searchTerm.toLowerCase());
+    this.props.searchAlbums(searchTerm.toLowerCase());
+    this.props.searchArtists(searchTerm.toLowerCase());
+    this.props.searchPlaylists(searchTerm.toLowerCase());
+  }
+
   render() {
-    console.log("props: ", this.props);
     return (
       <div className="search-main-container">
         <div className="search-display-container">
@@ -58,7 +67,13 @@ class Search extends React.Component {
               </form>
             </div>
           </div>
-          <SearchResults headings={this.state.headings}/>
+          <SearchResults
+            headings={this.state.headings}
+            songs={this.props.songs}
+            albums={this.props.albums}
+            artists={this.props.artists}
+            playlists={this.props.playlists}
+          />
         </div>
       </div>
     )
