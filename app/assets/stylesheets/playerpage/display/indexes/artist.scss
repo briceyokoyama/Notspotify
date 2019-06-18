@@ -3,6 +3,8 @@
   max-width: inherit;
   display: flex;
   align-self: center;
+  margin-top: 30px;
+
   ul {
     width: 100%;
     padding-left: 25px;
@@ -27,8 +29,8 @@
             display: block;
             color: white;
             font-weight: 500;
-            font-size: .8em;
-            margin: 10px 7px;
+            font-size: .9em;
+            margin: 15px 7px;
             align-self: center;
           }
   
@@ -48,5 +50,6 @@
 
 .artist-image {
   height: 220px;
-  width: 220px;     
+  width: 220px;
+  border-radius: 50%;
 }
