@@ -73,6 +73,7 @@ class Search extends React.Component {
             albums={this.props.albums}
             artists={this.props.artists}
             playlists={this.props.playlists}
+            playSong = {this.props.playSong}
           />
         </div>
       </div>

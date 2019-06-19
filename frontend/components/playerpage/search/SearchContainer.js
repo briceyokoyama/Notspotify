@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Search from './Search';
-import { searchSongs } from '../../../actions/song_actions';
+import { searchSongs, playSong } from '../../../actions/song_actions';
 import { searchAlbums } from '../../../actions/album_actions';
 import { searchArtists } from '../../../actions/artist_actions';
 import { searchPlaylists } from '../../../actions/playlist_actions';
@@ -44,7 +44,9 @@ const mdtp = dispatch => ({
   searchSongs: query => dispatch(searchSongs(query)),
   searchAlbums: query => dispatch(searchAlbums(query)),
   searchArtists: query => dispatch(searchArtists(query)),
-  searchPlaylists: query => dispatch(searchPlaylists(query))
+  searchPlaylists: query => dispatch(searchPlaylists(query)),
+  playSong: (song) => dispatch(playSong(song))
+
 })
 
 export default connect(mstp, mdtp)(Search);

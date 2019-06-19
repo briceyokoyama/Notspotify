@@ -28,6 +28,7 @@ class SongItem extends React.Component {
   }
 
   playSong() {
+    console.log(this.props);
     this.props.playSong({song: this.props.song, songs: this.props.songs, index: this.props.index})
   }
 

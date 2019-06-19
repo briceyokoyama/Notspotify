@@ -30,8 +30,10 @@ class SearchResults extends React.Component {
         break;
       case 'PLAYLISTS':
         results = <PlaylistSearch playlists={this.props.playlists}/>
+        break;
       case 'SONGS':
-        results = <SongSearch songs={this.props.songs}/>
+        results = <SongSearch songs={this.props.songs} playSong={this.props.playSong}/>
+        break;
       default:
         break;
     }
