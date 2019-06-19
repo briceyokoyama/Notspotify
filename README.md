@@ -67,3 +67,30 @@ const PlayerPage = () => {
 }
 ```
 The PlayerPage component is rendered after a user is logged-in. Here three main components are rendered, we are only concerned with the ```PlayBarContainer```, which contains the controls for music playback. By rendering the ```PlayBarContainer``` in the top-level component we can ensure that navigation through the website will not trigger it to rerender, allowing for continuous playback.
+
+## MVPs
+
+1. Hosting on Heroku
+2. New account creation, login, and guest/demo login
+
+   * Users can sign up, sign in, log out
+   * Users can use a demo login to try the site
+   * Users can't use certain features without logging in (stream music, view available songs)
+3. Playlist CRUD
+
+   * Logged in users can create playlists
+   * Users can view a list playlists
+   * Logged in users can edit their existing playlists
+   * Logged in users can delete their playlists
+4. Search
+
+   * Logged in users can search for available content
+   * Search results return all relevant content
+5. Continuous play while navigating site
+
+   * Users can stream music while navigating through the site
+   * Song playback is uninterrupted while user is navigating
+6. Following playlists/artists/albums/songs
+
+   * Users can follow other's playlists and artists/songs/albums
+7. Production README
