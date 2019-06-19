@@ -1,5 +1,8 @@
 import React from 'react';
 import ArtistSearch from './ArtistSearch';
+import AlbumSearch from './AlbumSearch';
+import PlaylistSearch from './PlaylistSearch';
+import SongSearch from './SongSearch';
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -8,6 +11,11 @@ class SearchResults extends React.Component {
     this.state = {
       selected: 'ARTISTS'
     }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.setState({selected: e.target.innerText})
   }
 
   render() {
@@ -15,18 +23,18 @@ class SearchResults extends React.Component {
     let results;
     switch (this.state.selected) {
       case 'ALBUMS':
-        // results = <AlbumSearch artists={this.props.album}/>
+        results = <AlbumSearch key={this.state.selected} albums={this.props.albums}/>
+        break;
       case 'ARTISTS':
-        results = <ArtistSearch artists={this.props.artists}/>
+        results = <ArtistSearch key={this.state.selected} artists={this.props.artists}/>
+        break;
       case 'PLAYLISTS':
-        // results = <PlaylistSearch artists={this.props.playlists}/>
+        results = <PlaylistSearch playlists={this.props.playlists}/>
       case 'SONGS':
-        // results = <SongsSearch artists={this.props.songs}/>
+        results = <SongSearch songs={this.props.songs}/>
       default:
         break;
     }
-
-    console.log(this.props);
 
     return (
       <div className="search-results-container">
@@ -35,7 +43,13 @@ class SearchResults extends React.Component {
             <ul>
               {this.props.headings.map((heading, idx) => {
                 return (
-                  <li key={idx} >{heading}</li>
+                  <li 
+                    key={idx}
+                    className={ (this.state.selected.includes(heading)) ? 'selected-heading' : null }
+                    onClick={this.handleClick}
+                  >
+                    {heading}
+                  </li>
                 )}
               )}
             </ul>

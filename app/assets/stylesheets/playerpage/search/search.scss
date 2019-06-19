@@ -75,12 +75,20 @@
       color: white;
       cursor: pointer;
     }
+
+    .selected-heading {
+      color: white;
+    }
   }
 }
 
-.search-results-display-container {
-  height: 100%;
+.search-display-results-container {
+  height: calc(100% - 91px);
   width: 100%;
-  display: flex;
-  flex-wrap: wrap
+  overflow: auto;
+}
+
+.album-image {
+  height: 220px;
+  width: 220px;
 }

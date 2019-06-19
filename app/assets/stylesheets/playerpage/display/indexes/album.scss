@@ -1,4 +1,4 @@
-.artist-index {
+.album-index {
   width: 100%;
   max-width: inherit;
   display: flex;
@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+
     li {
       margin: 10px 15px;
 
@@ -19,13 +20,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        
         a{
   
           img:hover {
             cursor: pointer;
           }
   
-          .artist-name {
+          .album-name {
             display: block;
             color: white;
             font-weight: 500;
@@ -34,7 +36,7 @@
             align-self: center;
           }
   
-          .artist-name:hover {
+          .album-name:hover {
             cursor: pointer;
           }
         }
@@ -48,8 +50,7 @@
   }
 }
 
-.artist-image {
+.album-image {
   height: 220px;
   width: 220px;
-  border-radius: 50%;
 }

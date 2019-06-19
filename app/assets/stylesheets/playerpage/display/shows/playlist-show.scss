@@ -17,8 +17,13 @@
 }
 
 .song-list-container {
-  margin-left: 50px;
+  padding-left: 50px;
   overflow: auto;
+  width: 100%;
+
+  ul {
+    width: 70%;
+  }
 }
 
 .song-item {
@@ -26,8 +31,9 @@
   padding-bottom: 8px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
   
   .buttons {
     height: 100%;
@@ -40,6 +46,23 @@
       display: none;
     }
   }
+
+  .song-info-container {
+    height: 50px;
+    width: 100%;
+    // border: 0.5px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .song-title {
+      font-size: 14px;
+      font-weight: 300;
+      margin: 5px 0;
+    }
+  }
+
   .options {
     display: none;
     padding-right: 15px;
@@ -60,22 +83,6 @@
   .fa-play-circle-o {
     display: block;
   }
-}
-
-.song-info-container {
-  height: 50px;
-  width: 100%;
-  // border: 0.5px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.song-title {
-  font-size: 14px;
-  font-weight: 300;
-  margin: 5px 0;
 }
 
 .song-other-info {
