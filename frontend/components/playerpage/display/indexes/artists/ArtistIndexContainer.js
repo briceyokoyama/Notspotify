@@ -5,8 +5,9 @@ import ArtistIndex from './ArtistIndex';
 //   return Object.keys(playlists).map(id => playlists[id])
 // }
 
-const mstp = (state, ownProps) => ({
 
+const mstp = (state, ownProps) => ({
+  artists: Object.values(state.entities.artists)
 })
 
 const mdtp = dispatch => ({
