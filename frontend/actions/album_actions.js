@@ -11,3 +11,8 @@ export const fetchAlbums = () => dispatch => (
   APIUtil.fetchAlbums()
     .then(albums => dispatch(receiveAlbums(albums)))
 )
+
+export const searchAlbums = (query) => dispatch => (
+  APIUtil.searchAlbums(query)
+    .then(albums => dispatch(receiveAlbums(albums)))
+);

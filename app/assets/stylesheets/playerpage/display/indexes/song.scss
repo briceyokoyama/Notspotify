@@ -1,0 +1,9 @@
+.song-index {
+  margin-left: 50px;
+  overflow: auto;
+  width: calc(100% - 100px);
+
+  ul {
+    width: 100%;
+  }
+}

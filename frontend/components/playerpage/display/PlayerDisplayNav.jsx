@@ -18,7 +18,7 @@ class PlayerDisplayNav extends React.Component {
         <ul>
           {this.props.headings.map((heading, idx) => {
             return (
-            <li key={idx} onClick={this.handleClick(heading)}>{heading}</li>
+              <li key={idx} onClick={this.handleClick(heading)}>{heading}</li>
             )}
           )}
         </ul>

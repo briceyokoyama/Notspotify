@@ -5,3 +5,11 @@ export const fetchSongs = (playlist_id) => (
     data: {playlist_id: playlist_id}
   })
 )
+
+export const searchSongs = (query) => (
+  $.ajax({
+    method: `GET`,
+    url: `/api/songs`,
+    data: {search: query}
+  })
+)

@@ -1,7 +1,11 @@
 class Api::AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    if params[:search]
+      @albums = Album.where('LOWER(title) LIKE ?', "%#{params[:search]}%")
+    else
+      @albums = Album.all
+    end
   end
 
   def show
