@@ -15,13 +15,8 @@ const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
 
 const mstp = ({entities: {playlists, playlistFollowers}, session: {id}}, ownProps) => ({
   currentUserId: id,
-<<<<<<< HEAD
   playlists: playlistSelector(playlists, ownProps.match.params.main || 'library', id, playlistFollowers),
   // scenario: (ownProps.adding === true) ? 'library' : ownProps.match.params.main
-=======
-  playlists: playlistSelector(playlists, ownProps.match.params.main, id, playlistFollowers),
-  scenario: ownProps.match.params.main
->>>>>>> master
 })
 
 const mdtp = dispatch => ({
@@ -30,4 +25,4 @@ const mdtp = dispatch => ({
   fetchPlaylistFollowers: () => dispatch(fetchPlaylistFollowers())
 })
 
-export default withRouter(connect(mstp, mdtp)(PlaylistIndex));
+export default connect(mstp, mdtp)(PlaylistIndex);
