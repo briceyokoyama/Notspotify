@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './PlaylistShow';
 import { fetchPlaylist } from '../../../../../actions/playlist_actions';
-import { playSong, fetchAllSongs, stopSong } from '../../../../../actions/song_actions';
-import { fetchPlaylistSongs } from '../../../../../actions/playlist_songs_actions';
+import { playSong } from '../../../../../actions/song_actions';
+
 
 const songsSelector = (playlistSongs, songs, playlist_id) => {
   let arr = Object.keys(playlistSongs).map(id => {

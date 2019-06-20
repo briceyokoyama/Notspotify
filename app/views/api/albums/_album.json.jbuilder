@@ -5,4 +5,6 @@ json.set! album.id do
   else
     json.coverUrl asset_path('default_album_cover.png')
   end
+  json.length album.songs.length
+  json.artist album.artist.name
 end

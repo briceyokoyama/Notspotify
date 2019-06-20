@@ -1,20 +1,26 @@
 import React from 'react';
-import SongItem from './SongItem';
-import PlaylistShowDetail from './PlaylistShowDetail';
+import SongItem from '../playlist/SongItem';
+import PlaylistShowDetail from '../playlist/PlaylistShowDetail';
 
-class PlaylistShow extends React.Component {
+class AlbumShow extends React.Component {
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.playlistId);
+    this.props.fetchAlbum(this.props.albumId);
   }
 
   render() {
     if (this.props.loading) return <div></div>
-    let {songs, playlist} = this.props;
-    console.log(playlist);
+    let {songs, album} = this.props;
+    let playlist = [{
+      id: album.id,
+      title: album.title,
+      creator: album.artist,
+      coverUrl: album.coverUrl,
+      length: album.length
+    }]
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
@@ -28,4 +34,4 @@ class PlaylistShow extends React.Component {
   }
 }
 
-export default PlaylistShow;
+export default AlbumShow;
