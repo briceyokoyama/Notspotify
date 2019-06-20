@@ -1,7 +1,14 @@
 export const searchArtists = (query) => (
   $.ajax({
-    methos: `GET`,
+    method: `GET`,
     url: `/api/artists`,
     data: {search: query}
+  })
+)
+
+export const fetchArtists = () => (
+  $.ajax({
+    method: `GET`,
+    url: `/api/artists`,
   })
 )

@@ -4,11 +4,11 @@ import ArtistSearch from '../../../search/ArtistSearch';
 
 class ArtistIndex extends React.Component {
   constructor(props) {
-
+    super(props)
   }
 
   componentDidMount() {
-    
+    this.props.fetchArtists()
   }
 
   render() {

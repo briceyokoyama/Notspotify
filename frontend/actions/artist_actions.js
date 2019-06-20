@@ -11,3 +11,8 @@ export const searchArtists = (query) => dispatch => (
   APIUtil.searchArtists(query)
     .then(artists => dispatch(receiveArtists(artists)))
 );
+
+export const fetchArtists = () => dispatch => (
+  APIUtil.fetchArtists()
+    .then(artists => dispatch(receiveArtists(artists)))
+)
