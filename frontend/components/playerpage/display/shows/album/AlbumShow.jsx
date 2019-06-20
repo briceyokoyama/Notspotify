@@ -21,6 +21,7 @@ class AlbumShow extends React.Component {
       coverUrl: album.coverUrl,
       length: album.length
     }]
+    console.log(songs);
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
