@@ -1,40 +1,13 @@
-import React from 'react';
-import ArtistSearch from '../../../search/AlbumSearch';
-
-
-class AlbumIndex extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    this.props.fetchAlbumss()
-  }
-
-  render() {
-    return (
-      <ArtistSearch artists={this.props.artists} />
-    )
-  }
-}
-
-export default ArtistIndex;
-
 import { connect } from 'react-redux';
-import ArtistIndex from './ArtistIndex';
-import { fetchArtists } from '../../../../../actions/artist_actions';
-
-// const playlistSelector = (playlists) => {
-//   return Object.keys(playlists).map(id => playlists[id])
-// }
-
+import AlbumIndex from './AlbumIndex';
+import { fetchAlbums } from '../../../../../actions/album_actions';
 
 const mstp = (state, ownProps) => ({
-  artists: Object.values(state.entities.artists)
+  albums: Object.values(state.entities.albums)
 })
 
 const mdtp = dispatch => ({
-  fetchArtists: () => dispatch(fetchArtists())
+  fetchAlbums: () => dispatch(fetchAlbums())
 })
 
-export default connect(mstp, mdtp)(ArtistIndex);
+export default connect(mstp, mdtp)(AlbumIndex);
