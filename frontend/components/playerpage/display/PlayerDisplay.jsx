@@ -4,6 +4,7 @@ import PlayerDisplayNavContainer from './PlayerDisplayNavContainer';
 import PlaylistIndexContainer from './indexes/playlists/PlaylistIndexContainer';
 import ArtistIndexContainer from './indexes/artists/ArtistIndexContainer';
 import PlaylistShowContainer from './shows/playlist/PlaylistShowContainer';
+import AlbumShowContainer from './shows/album/AlbumShowContainer';
 import AlbumIndexContainer from './indexes/albums/AlbumIndexContainer';
 // import { ProtectedRoute } from '../../../util/route_util';
 
@@ -19,6 +20,7 @@ class PlayerDisplay extends React.Component {
         <div className={'player-display-container'}>
         <Switch>
           <Route path='/playlists/:id' component={PlaylistShowContainer} />
+          <Route path='/albums/:id' component={AlbumShowContainer} />
           <Route path='/songs/' component={PlaylistShowContainer} />
           <Route path='/:main/playlists' component={PlaylistIndexContainer} />
           <Route path='/:main/artists' component={ArtistIndexContainer} />
