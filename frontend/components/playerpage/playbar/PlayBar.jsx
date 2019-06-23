@@ -61,7 +61,7 @@ class PlayBar extends React.Component {
             <i className="fa fa-step-backward small-icon" aria-hidden="true" onClick={() => this.props.prevSong()}/>
             <i className={`fa fa-play-circle-o ${isPlaying ? 'hidden' : null}`} aria-hidden="true" onClick={this.resumeSong}/>
             <i className={`fa fa-pause-circle-o ${isPlaying ? null : `hidden`}`} aria-hidden="true" onClick={this.props.pauseSong}/>
-            <i className="fa fa-step-forward small-icon" aria-hidden="true" onClick={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom})}/>
+            <i className="fa fa-step-forward small-icon" aria-hidden="true" onClick={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom, isPlaying: this.props.isPlaying})}/>
             <i className={`fa fa-repeat small-icon ${isLooping ? 'green' : null}`} aria-hidden="true" onClick={this.toggleLooping}></i>
           </div>
           <div className='playbar-time-info'>

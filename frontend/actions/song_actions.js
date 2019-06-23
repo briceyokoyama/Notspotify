@@ -44,7 +44,7 @@ export const pauseSong = () => {
   return {type: PAUSE_SONG}
 }
 
-export const nextSong = ({songs, index, looping, random}) => {
+export const nextSong = ({songs, index, looping, random, isPlaying}) => {
   let audio = document.getElementsByClassName('react-audio-player');
   let newIndex = index + 1;
   if (looping) {
@@ -58,12 +58,18 @@ export const nextSong = ({songs, index, looping, random}) => {
   }
 
   audio[0].setAttribute('src', songs[newIndex].src);
-  audio[0].play();
+  var currTime = document.getElementById('song-current-time')
+  currTime.innerText = '0:00';
+
+  if (isPlaying) {
+    audio[0].play();
+  }
+  
   return (
     {
       type: NEXT_SONG,
       index: newIndex,
-      nextSong: {id: songs[newIndex].id, duration: audio[0].duration},
+      nextSong: {id: songs[newIndex].id},
       currSong: index
     }
   )
