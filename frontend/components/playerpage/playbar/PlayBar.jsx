@@ -44,7 +44,7 @@ class PlayBar extends React.Component {
   }
 
   render() {
-    let {currentSong, isPlaying, currentAlbum, currentPlaylist, currentIndex, playbar: {isLooping}, playbar: {isRandom}} = this.props;
+    let {currentSong, isPlaying, currentAlbum, currentPlaylist, currentIndex, playbar: {isLooping}, playbar: {isRandom}, playedIndices} = this.props;
     let albumCover = currentAlbum ? currentAlbum.coverUrl : null;
     return (
       <div className="player-playbar-container">
@@ -58,10 +58,10 @@ class PlayBar extends React.Component {
         <div className={'player-wrapper'}>
           <div className='main-buttons'>
             <i className={`fa fa-random small-icon ${isRandom ? 'green' : null}`}  aria-hidden="true" onClick={this.toggleRandom}></i>
-            <i className="fa fa-step-backward small-icon" aria-hidden="true"/>
+            <i className="fa fa-step-backward small-icon" aria-hidden="true" onClick={() => this.props.prevSong({prevIndices: playedIndices, songs: currentPlaylist, isPlaying})}/>
             <i className={`fa fa-play-circle-o ${isPlaying ? 'hidden' : null}`} aria-hidden="true" onClick={this.resumeSong}/>
             <i className={`fa fa-pause-circle-o ${isPlaying ? null : `hidden`}`} aria-hidden="true" onClick={this.props.pauseSong}/>
-            <i className="fa fa-step-forward small-icon" aria-hidden="true" onClick={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom})}/>
+            <i className="fa fa-step-forward small-icon" aria-hidden="true" onClick={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom, isPlaying: this.props.isPlaying})}/>
             <i className={`fa fa-repeat small-icon ${isLooping ? 'green' : null}`} aria-hidden="true" onClick={this.toggleLooping}></i>
           </div>
           <div className='playbar-time-info'>

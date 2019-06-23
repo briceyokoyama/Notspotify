@@ -4,6 +4,7 @@ export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_ALL_SONGS = "RECEIVE_ALL_SONGS";
 export const PLAY_SONG = "PLAY_SONG";
 export const PAUSE_SONG = "STOP_SONG";
+export const PREVIOUS_SONG = "PREVIOUS_SONG";
 export const NEXT_SONG = "NEXT_SONG";
 export const RESUME_SONG = "RESUME_SONG";
 export const TOGGLE_RANDOM = "TOGGLE_RANDOM";
@@ -43,7 +44,7 @@ export const pauseSong = () => {
   return {type: PAUSE_SONG}
 }
 
-export const nextSong = ({songs, index, looping, random}) => {
+export const nextSong = ({songs, index, looping, random, isPlaying}) => {
   let audio = document.getElementsByClassName('react-audio-player');
   let newIndex = index + 1;
   if (looping) {
@@ -57,12 +58,19 @@ export const nextSong = ({songs, index, looping, random}) => {
   }
 
   audio[0].setAttribute('src', songs[newIndex].src);
-  audio[0].play();
+  var currTime = document.getElementById('song-current-time')
+  currTime.innerText = '0:00';
+
+  if (isPlaying) {
+    audio[0].play();
+  }
+  
   return (
     {
       type: NEXT_SONG,
       index: newIndex,
-      nextSong: {id: songs[newIndex].id, duration: audio[0].duration}
+      nextSong: {id: songs[newIndex].id},
+      currSong: index
     }
   )
 }
@@ -77,8 +85,33 @@ export const resumeSong = (payload) => {
   )
 }
 
-export const previousSong = (prevSong) => {
-  
+export const previousSong = ({prevIndices, songs, isPlaying}) => {
+  let audio = document.getElementsByClassName('react-audio-player');
+  let currTime = audio[0].currentTime;
+  currTime = document.getElementById('song-current-time')
+  currTime.innerText = '0:00';
+
+  if (currTime < 2 && prevIndices.length > 0) {
+    let newIndex = prevIndices[prevIndices.length-1]
+    audio[0].setAttribute('src', songs[newIndex].src);
+
+    if (isPlaying) {
+      audio[0].play();
+    }
+
+    return (
+      {
+        type: PREVIOUS_SONG,
+        index: newIndex,
+        nextSong: {id: songs[newIndex].id}
+      }
+    )
+  } else {
+    audio[0].currentTime = 0;
+    return {
+      type: "PLACEHOLDER"
+    };
+  }
 }
 
 export const toggleLooping = (isLooping) => {
