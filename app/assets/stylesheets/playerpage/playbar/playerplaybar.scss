@@ -1,13 +1,14 @@
 #progressBar {
-  color: #fff; 
+  background-color: #555555; 
   width: 80%; 
-  height: 8px;
-  z-index: 3;
+  height: 3px;
 }
 #progress {
   background-color: #444444;
-  height: 8px;
+  height: 3px;
   display:inline-block;
+  position: relative;
+  bottom: 10px;
   z-index: 2;
 }
 

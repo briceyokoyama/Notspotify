@@ -4,6 +4,7 @@ export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_ALL_SONGS = "RECEIVE_ALL_SONGS";
 export const PLAY_SONG = "PLAY_SONG";
 export const PAUSE_SONG = "STOP_SONG";
+export const PREVIOUS_SONG = "PREVIOUS_SONG";
 export const NEXT_SONG = "NEXT_SONG";
 export const RESUME_SONG = "RESUME_SONG";
 export const TOGGLE_RANDOM = "TOGGLE_RANDOM";
@@ -62,7 +63,8 @@ export const nextSong = ({songs, index, looping, random}) => {
     {
       type: NEXT_SONG,
       index: newIndex,
-      nextSong: {id: songs[newIndex].id, duration: audio[0].duration}
+      nextSong: {id: songs[newIndex].id, duration: audio[0].duration},
+      currSong: index
     }
   )
 }
@@ -77,8 +79,23 @@ export const resumeSong = (payload) => {
   )
 }
 
-export const previousSong = (prevSong) => {
+export const previousSong = (prevIndices) => {
+  let audio = document.getElementsByClassName('react-audio-player');
+  let currTime = audio[0].currentTime;
+
+  // if (prevIndices) {
+  //   if (currTime < 2) {
+  //     return ({
+  //       type: PREVIOUS_SONG,
+  //       index: prevIndices[prevIndices.length-]
+  //     })
+  //   }
+  // }
   
+  audio[0].currentTime = 0;
+  return {
+    type: "PLACEHOLDER"
+  };
 }
 
 export const toggleLooping = (isLooping) => {

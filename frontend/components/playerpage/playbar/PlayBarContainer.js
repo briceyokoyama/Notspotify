@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlayBar from './PlayBar';
-import { pauseSong, nextSong, resumeSong, toggleRandom, toggleLooping } from '../../../actions/song_actions';
+import { previousSong, pauseSong, nextSong, resumeSong, toggleRandom, toggleLooping } from '../../../actions/song_actions';
 import { fetchAlbums } from '../../../actions/album_actions';
 
 const getCurrentAlbum = (songs, currentSongId, albums) => {
@@ -17,10 +17,12 @@ const mstp = (state, ownProps) => ({
   currentAlbum: getCurrentAlbum(state.entities.songs, state.ui.currentSong.id, state.entities.albums),
   currentIndex: state.ui.index,
   currentPlaylist: state.ui.songs,
-  playbar: state.ui.playbarControls
+  playbar: state.ui.playbarControls,
+  playedIndices: state.ui.playedIndices
 })
 
 const mdtp = dispatch => ({
+  prevSong: () => dispatch(previousSong()),
   pauseSong: () => dispatch(pauseSong()),
   nextSong: (payload) => dispatch(nextSong(payload)),
   resumeSong: (payload) => dispatch(resumeSong(payload)),

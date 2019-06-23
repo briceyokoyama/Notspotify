@@ -5,7 +5,8 @@ import loadingReducer from './loading_reducer';
 import currentSongReducer from './current_song_reducer';
 import isPlayingReducer from './is_playing_reducer';
 import indexReducer from './index_reducer';
-import playBarReducer from './playbar_controls_reducer'
+import playBarReducer from './playbar_controls_reducer';
+import prevIndexReducer from './prev_index_reducer';
 
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
   currentSong: currentSongReducer,
   isPlaying: isPlayingReducer,
   index: indexReducer,
+  playedIndices: prevIndexReducer,
   playbarControls: playBarReducer
 })
