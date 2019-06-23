@@ -85,23 +85,33 @@ export const resumeSong = (payload) => {
   )
 }
 
-export const previousSong = (prevIndices) => {
+export const previousSong = ({prevIndices, songs, isPlaying}) => {
   let audio = document.getElementsByClassName('react-audio-player');
   let currTime = audio[0].currentTime;
+  currTime = document.getElementById('song-current-time')
+  currTime.innerText = '0:00';
 
-  // if (prevIndices) {
-  //   if (currTime < 2) {
-  //     return ({
-  //       type: PREVIOUS_SONG,
-  //       index: prevIndices[prevIndices.length-]
-  //     })
-  //   }
-  // }
-  
-  audio[0].currentTime = 0;
-  return {
-    type: "PLACEHOLDER"
-  };
+  if (currTime < 2 && prevIndices.length > 0) {
+    let newIndex = prevIndices[prevIndices.length-1]
+    audio[0].setAttribute('src', songs[newIndex].src);
+
+    if (isPlaying) {
+      audio[0].play();
+    }
+
+    return (
+      {
+        type: PREVIOUS_SONG,
+        index: newIndex,
+        nextSong: {id: songs[newIndex].id}
+      }
+    )
+  } else {
+    audio[0].currentTime = 0;
+    return {
+      type: "PLACEHOLDER"
+    };
+  }
 }
 
 export const toggleLooping = (isLooping) => {

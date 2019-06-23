@@ -22,7 +22,7 @@ const mstp = (state, ownProps) => ({
 })
 
 const mdtp = dispatch => ({
-  prevSong: () => dispatch(previousSong()),
+  prevSong: (payload) => dispatch(previousSong(payload)),
   pauseSong: () => dispatch(pauseSong()),
   nextSong: (payload) => dispatch(nextSong(payload)),
   resumeSong: (payload) => dispatch(resumeSong(payload)),

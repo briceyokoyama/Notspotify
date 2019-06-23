@@ -1,4 +1,4 @@
-import { PLAY_SONG, NEXT_SONG } from '../actions/song_actions';
+import { PLAY_SONG, NEXT_SONG, PREVIOUS_SONG } from '../actions/song_actions';
 
 const prevIndexReducer = (state = [], action) => {
   Object.freeze(state);
@@ -11,6 +11,8 @@ const prevIndexReducer = (state = [], action) => {
       } else {
         return state;
       }
+    case PREVIOUS_SONG:
+      return state.slice(0, state.length-1)
     default:
       return state;
   }
