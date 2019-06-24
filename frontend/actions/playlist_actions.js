@@ -35,6 +35,11 @@ export const searchPlaylists = (query) => dispatch => (
     .then(playlists => dispatch(receivePlaylists(playlists)))
 );
 
+export const searchPlaylistsByUserId = (userId) => dispatch => (
+  APIUtil.searchPlaylistsByUserId(userId)
+    .then(playlists => dispatch(receivePlaylists(playlists)))
+);
+
 export const makePlaylist = (playlist) => dispatch => (
   APIUtil.createPlaylist(playlist)
     .then(playlist => dispatch(receivePlaylist(playlist)))

@@ -30,3 +30,45 @@ body  * {
 .display-none {
   display: none;
 }
+
+.add-song-modal {
+  @extend %modal;
+
+  div {
+    padding-top: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .exit-button {
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      font-weight: 300;
+    }
+
+    .exit-button:hover {
+      font-size: 50px;
+      filter: brightness(1.1);
+    }
+
+    .playlist-modal-header {
+      height: 40px;
+      font-size: 44px;
+      font-weight: 600;
+      margin: 30px 0;
+      color: white;
+    }
+
+    div {
+      padding-left: 60px;
+      padding-right: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}

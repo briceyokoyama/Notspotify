@@ -1,13 +1,13 @@
 import * as APIUtil from '../util/playlistSong_api_util';
 
-export const RECEIVE_PLAYLIST_SONGS = "RECEIVE_PLAYLIST_SONGS";
+export const RECEIVE_PLAYLIST_SONG = "RECEIVE_PLAYLIST_SONG"
 
-const receivePlaylistSongs = (playlistSongs) => ({
-  type: RECEIVE_PLAYLIST_SONGS,
-  playlistSongs
+export const receivePlaylistSong = (playlistSong) => ({
+  type: RECEIVE_PLAYLIST_SONG,
+  playlistSong
 })
 
-export const fetchPlaylistSongs = () => dispatch => (
-  APIUtil.recivePlaylistSongs()
-    .then(playlistSongs => dispatch(receivePlaylistSongs(playlistSongs)))
+export const addSongToPlaylist = (payload) => dispatch => (
+  APIUtil.addToPlaylist(payload)
+    .then(playlistSong => dispatch(receivePlaylistSong(playlistSong)))
 )

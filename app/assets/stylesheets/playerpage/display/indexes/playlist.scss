@@ -86,7 +86,7 @@
 
 }
 
-.create-playlist-modal {
+.create-playlist-modal, .add-song-modal {
   @extend %modal;
 
   div {

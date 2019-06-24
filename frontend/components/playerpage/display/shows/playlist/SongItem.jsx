@@ -1,5 +1,5 @@
 import React from 'react';
-import SongDropdown from './SongDropdown';
+import SongDropdownContainer from './SongDropdownContainer';
 // import { playSelectedSong } from '../../../../../actions/song_actions';
 
 class SongItem extends React.Component {
@@ -55,7 +55,7 @@ class SongItem extends React.Component {
         </div>
         <div className={'options'} onClick={this.showDropdown}>
           {'...'}
-          <SongDropdown show={this.state.showDropdown}/>
+          <SongDropdownContainer show={this.state.showDropdown} id={song.id}/>
         </div>
       </div>
     )

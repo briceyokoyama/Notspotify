@@ -3,6 +3,8 @@ class Api::PlaylistsController < ApplicationController
   def index
     if params[:user_id].nil?
       @playlists = Playlist.all
+    elsif params[:userId]
+      @playlists = Playlist.includes(:creator, :playlist_songs, :playlist_followers, :songs, :followers).where('user_id = ?', params[:userId])
     else
       user = User.find(params[:user_id])
       @playlists = user.followed_playlists
