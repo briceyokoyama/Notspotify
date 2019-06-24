@@ -10,7 +10,10 @@ class SongDropdown extends React.Component {
     
     return (
       <div className={showHideClassName}>
-        <span onClick={() => this.props.addSong(this.props.id)}>Add to playlist</span>
+        <div onClick={() => this.props.addSong(this.props.id)}>Add to playlist</div>
+        {(this.props.psId && this.props.playlist && this.props.playlist.userId === this.props.userId)
+          ? <div onClick={() => this.props.removeSongFromPlaylist(this.props.psId)}>Remove from playlist</div>
+          : null}
       </div>
     )
   }

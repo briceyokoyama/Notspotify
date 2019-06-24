@@ -1,5 +1,5 @@
-import { ADD_SONG, CLOSE_MODAL } from '../actions/song_actions';
-import { RECEIVE_PLAYLIST_SONG } from '../actions/playlist_songs_actions';
+
+import { ADD_SONG, CLOSE_MODAL, RECEIVE_PLAYLIST_SONG } from '../actions/playlist_songs_actions';
 
 const addSongReducer = (state = {}, action) => {
   switch (action.type) {

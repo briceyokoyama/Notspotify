@@ -18,14 +18,13 @@ class AlbumShow extends React.Component {
       id: album.id,
       title: album.title,
       creator: album.artist,
-      coverUrl: album.coverUrl,
-      length: album.length
+      coverUrl: album.coverUrl
     }]
     console.log(songs);
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
-          {playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} songs={songs} playSong={this.props.playSong} />)}
+          {playlist.map(playlist => <PlaylistShowDetail key={playlist.id} playlist={playlist} songs={songs} playSong={this.props.playSong} length={songs.length}/>)}
         </div>
         <div className={'song-list-container'}>
           {songs.map((song, idx) => <SongItem key={song.id} song={song} songs={this.props.songs} playSong={this.props.playSong} index={idx} />)}

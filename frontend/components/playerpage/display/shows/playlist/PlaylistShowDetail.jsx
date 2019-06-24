@@ -22,7 +22,7 @@ class PlaylistShowDetail extends React.Component {
         <div className={'playlist-show-button-container'}>
         <button onClick={this.playSong}>PLAY</button>
         </div>
-        <div className={'playlist-length'}>{`${this.props.playlist.length} SONGS`}</div>
+        <div className={'playlist-length'}>{`${this.props.length} SONGS`}</div>
       </div>
     )
   }

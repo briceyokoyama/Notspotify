@@ -136,16 +136,17 @@
 .song-dropdown {
   position: absolute;
   right: 20px;
-  width: 100px;
+  width: 150px;
   background: grey;
   padding: 5px;
-  span {
+  div {
     font-size: 13px;
     font-weight: 100;
+    margin: 4px;
   }
-}
 
-.song-dropdown:hover {
-  filter: brightness(0.75);
-  cursor: pointer;
+  div:hover {
+    filter: brightness(0.75);
+    cursor: pointer;
+  }
 }

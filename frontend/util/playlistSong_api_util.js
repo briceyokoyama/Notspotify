@@ -5,3 +5,10 @@ export const addToPlaylist = (payload) => (
     data: {playlist_song: {song_id: payload.songId, playlist_id: payload.playlistId}}
   })
 )
+
+export const removeFromPlaylist = (psId) => (
+  $.ajax({
+    method: `DELETE`,
+    url: `/api/playlist_songs/${psId}`
+  })
+)

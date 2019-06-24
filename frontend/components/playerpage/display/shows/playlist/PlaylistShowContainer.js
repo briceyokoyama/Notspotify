@@ -7,7 +7,7 @@ import { playSong } from '../../../../../actions/song_actions';
 const songsSelector = (playlistSongs, songs, playlist_id) => {
   let arr = Object.keys(playlistSongs).map(id => {
     if (playlistSongs[id].playlistId === parseInt(Object.keys(playlist_id)[0])) {
-      return songs[playlistSongs[id].songId]
+      return {psId: id, song: songs[playlistSongs[id].songId]}
     } else { 
       return false }
   }).filter(ele => ele !== false)
@@ -21,7 +21,7 @@ const playlistSelector = (playlist) => {
 
 const mstp = (state, ownProps) => ({
   playlistId: ownProps.match.params.id,
-  songs: songsSelector(state.entities.playlistSongs, state.entities.songs, state.ui.playlist),
+  songsObj: songsSelector(state.entities.playlistSongs, state.entities.songs, state.ui.playlist),
   playlist: playlistSelector(state.ui.playlist),
   loading: state.ui.loading.playlistLoading
 })

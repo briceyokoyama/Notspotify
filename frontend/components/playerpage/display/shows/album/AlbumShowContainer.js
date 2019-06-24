@@ -4,7 +4,6 @@ import { fetchAlbum } from '../../../../../actions/album_actions';
 import { playSong } from '../../../../../actions/song_actions';
 
 const songsSelector = (songs, album_id) => {
-  debugger;
   return Object.values(songs)
     .filter(song => song.albumId === parseInt(album_id))
 }

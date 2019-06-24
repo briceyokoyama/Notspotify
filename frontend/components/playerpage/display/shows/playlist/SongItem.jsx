@@ -55,7 +55,7 @@ class SongItem extends React.Component {
         </div>
         <div className={'options'} onClick={this.showDropdown}>
           {'...'}
-          <SongDropdownContainer show={this.state.showDropdown} id={song.id}/>
+          <SongDropdownContainer show={this.state.showDropdown} id={song.id} psId={this.props.psId}/>
         </div>
       </div>
     )
