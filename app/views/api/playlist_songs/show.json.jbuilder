@@ -1,0 +1,1 @@
+json.partial! "api/playlists/playlist_song", playlist_song: @playlist_song

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddSongModal from '../../AddSongModal';
 
 class PlayerNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.searchPlaylists(this.props.userId)
   }
 
   handleClick(type) {
@@ -49,6 +54,7 @@ class PlayerNavBar extends React.Component {
         <div className={'player-user-info'}>
           <span onClick={this.props.logout}>Logout</span>
         </div>
+        <AddSongModal show={this.props.addSong.show} songId={this.props.addSong.id} handleClose={this.props.closeModal} playlists={this.props.playlists} handleClick={this.props.addSongToPlaylist} />
       </div>
     )
   }

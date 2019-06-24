@@ -6,5 +6,4 @@ json.set! playlist.id do
     json.coverUrl asset_path('default_playlist_cover.png')
   end
   json.creator playlist.creator.username
-  json.length playlist.songs.length
 end

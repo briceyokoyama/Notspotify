@@ -74,6 +74,7 @@
 
   .options {
     display: inline-block;
+    position: relative;
   }
 
   .fa-music {
@@ -134,13 +135,18 @@
 
 .song-dropdown {
   position: absolute;
+  right: 20px;
+  width: 150px;
   background: grey;
-  font-size: 13px;
-  font-weight: 100;
   padding: 5px;
-}
+  div {
+    font-size: 13px;
+    font-weight: 100;
+    margin: 4px;
+  }
 
-.song-dropdown:hover {
-  filter: brightness(0.75);
-  cursor: pointer;
+  div:hover {
+    filter: brightness(0.75);
+    cursor: pointer;
+  }
 }

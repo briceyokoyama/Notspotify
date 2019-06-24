@@ -3,12 +3,6 @@ import React from 'react';
 class SongDropdown extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.handleClose();
   }
 
   render() {
@@ -16,7 +10,10 @@ class SongDropdown extends React.Component {
     
     return (
       <div className={showHideClassName}>
-        Add to playlist
+        <div onClick={() => this.props.addSong(this.props.id)}>Add to playlist</div>
+        {(this.props.psId && this.props.playlist && this.props.playlist.userId === this.props.userId)
+          ? <div onClick={() => this.props.removeSongFromPlaylist(this.props.psId)}>Remove from playlist</div>
+          : null}
       </div>
     )
   }
