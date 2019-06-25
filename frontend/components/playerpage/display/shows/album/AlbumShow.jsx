@@ -20,7 +20,6 @@ class AlbumShow extends React.Component {
       creator: album.artist,
       coverUrl: album.coverUrl
     }]
-    console.log(songs);
     return (
       <div className={'playlist-show-container'}>
         <div className={'playlist-info-container'}>
