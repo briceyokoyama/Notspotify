@@ -10,6 +10,9 @@ export default (props) => (
       <Link to={`/albums/${props.album.id}`}>
         <span className='album-name'>{props.album.title}</span>
       </Link>
+      <Link to={`/albums/${props.album.id}`}>
+        <span className='artist-name'>{props.album.artist}</span>
+      </Link>
     </div>
   </li>
 )
