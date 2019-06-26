@@ -8,7 +8,7 @@
 }
 
 .search-display-container {
-  width: 100%;
+  width: calc(100vw - 230px);
   height: 100%;
   margin-left: 230px;
   display: flex;
@@ -84,6 +84,6 @@
 
 .search-display-results-container {
   height: calc(100% - 91px);
-  width: calc(100% - 230px);
+  width: 100%;
   overflow: auto;
 }
