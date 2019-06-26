@@ -1,15 +1,62 @@
-#progressBar {
+#progressBar, #volumeBar {
   background-color: #555555; 
   width: 80%; 
-  height: 3px;
+  height: 6px;
+  border-radius: 13px;
 }
-#progress {
+
+#progress, #volume {
   background-color: #444444;
-  height: 3px;
+  height: 6px;
   display:inline-block;
   position: relative;
-  bottom: 10px;
+  bottom: 7px;
   z-index: 2;
+  border-radius: 13px;
+}
+
+#volume {
+  width: 99%;
+}
+
+#handle, #volumeHandle {
+  position: relative;
+  bottom: 19px;
+  background-color: white;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+#volumeHandle {
+  left: 90%;
+  z-index: 2;
+}
+
+
+#progressBar:hover {
+  #progress {
+    background-color: $green;
+  }
+
+  #handle {
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transform: scale(1);
+  }
+}
+
+#volumeBar:hover {
+  #volume {
+    background-color: $green;
+  }
+
+  #volumeHandle {
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transform: scale(1);
+  }
 }
 
 .player-playbar-container {
@@ -70,6 +117,7 @@
       #song-duration, #song-current-time {
         font-size: 0.85em;
         font-weight: 100;
+        width: 30px;
       }
     }
 
@@ -125,8 +173,20 @@
     }
   }
   .playbar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 185px;
+    padding-right: 50px;
     width: 400px;
+    min-width: 400px;
     height: 100%;
     margin-right: 16px;
+    
+    i {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 }
