@@ -8,9 +8,10 @@
 
 .player-display-nav-container {
   width: 100%;
-  max-width: 1600px;
+  box-sizing: border-box;
   height: fit-content;
   margin-left: 230px;
+  padding-right: 230px;
   display: flex;
   justify-content: center;
   ul {
