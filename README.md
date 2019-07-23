@@ -10,7 +10,7 @@ Notspotify is built using Ruby on Rails and a PostgreSQL database to handle the 
 AWS S3 is used to host the main media files (artist, playlist, and album art as well as song files).
 React and Redux are used to manage the state of the front end alongside HTML5 and SASS for styling.
   
-![](./readme/splashpage.PNG)
+![](./readme/login.gif)
 
 ## Features
 
@@ -67,6 +67,97 @@ const PlayerPage = () => {
 }
 ```
 The PlayerPage component is rendered after a user is logged-in. Here three main components are rendered, we are only concerned with the ```PlayBarContainer```, which contains the controls for music playback. By rendering the ```PlayBarContainer``` in the top-level component we can ensure that navigation through the website will not trigger it to rerender, allowing for continuous playback.
+
+### Search
+
+![](./readme/search.gif)
+
+The search feature allows users to explore the content on Notspotify. The database is queried with the input from the user. The ```Search``` component sends a request to the API which will fill the Redux store with all relevent information based on the users query. The component also determines which headings to render based on the results returned with the users query. The code snippet below shows how the search componenet is implemented:
+```javascript
+//search.jsx
+componentDidMount() {
+  if (this.props.match.params.searchTerm) {
+    this.performSearch(this.props.match.params.searchTerm)
+  }
+}
+
+componentDidUpdate(prevProps) {
+
+  if (this.props !== prevProps) {
+    let headings = [];
+    if (this.props.artists.length !== 0) {
+      headings.push('ARTISTS')
+    }
+    if (this.props.albums.length !== 0) {
+      headings.push('ALBUMS')
+    }
+    if (this.props.playlists.length !== 0) {
+      headings.push('PLAYLISTS')
+    }
+    if (this.props.songs.length !== 0) {
+      headings.push('SONGS')
+    }
+    this.setState({headings});
+  }
+}
+
+handleInput() {
+  return (e) => {
+    this.setState({searchTerm: e.target.value})
+    if (e.target.value === '') {
+      this.props.history.push('/search')
+    } else {
+      this.props.history.push(`/search/results/${e.target.value}`)
+      this.performSearch(e.target.value);
+    }
+  }
+}
+
+performSearch(searchTerm) {
+  this.props.searchSongs(searchTerm.toLowerCase());
+  this.props.searchAlbums(searchTerm.toLowerCase());
+  this.props.searchArtists(searchTerm.toLowerCase());
+  this.props.searchPlaylists(searchTerm.toLowerCase());
+}
+```
+  
+The following code snippet shows how items returned by the search component are handled by the ```SearchContainer``` componenet. The componenet filters items in the Redux store based on the users query:
+
+```javascript
+//SearchContainer.js
+const entitySelector = (entity, object, query) => {
+  let map = {
+    song: 'title',
+    album: 'title',
+    artist: 'name',
+    playlist: 'title'
+  }
+  let column = map[entity];
+
+  return Object.values(object)
+    .filter(object => object[column].toLowerCase().includes(query))
+}
+
+const mstp = (state, {match: {params: {searchTerm}}}) => {
+
+  if (searchTerm) {
+    return {
+      songs: entitySelector('song', state.entities.songs, searchTerm.toLowerCase()),
+      albums: entitySelector('album', state.entities.albums, searchTerm.toLowerCase()),
+      artists: entitySelector('artist', state.entities.artists, searchTerm.toLowerCase()),
+      playlists: entitySelector('playlist', state.entities.playlists, searchTerm.toLowerCase())
+    }
+  } else {
+    return {
+      songs: [],
+      albums: [],
+      artists: [],
+      playlists: []
+    }
+  }
+}
+```
+
 
 ## MVPs
 

@@ -37,7 +37,6 @@ const mstp = (state, {match: {params: {searchTerm}}}) => {
       playlists: []
     }
   }
-  
 }
 
 const mdtp = dispatch => ({
