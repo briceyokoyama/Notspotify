@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlayBar from './PlayBar';
-import { previousSong, pauseSong, nextSong, resumeSong, toggleRandom, toggleLooping } from '../../../actions/song_actions';
+import { previousSong, pauseSong, nextSong, resumeSong, toggleRandom, toggleLooping, setVolume } from '../../../actions/song_actions';
 import { fetchAlbums } from '../../../actions/album_actions';
 
 const getCurrentAlbum = (songs, currentSongId, albums) => {
@@ -18,7 +18,8 @@ const mstp = (state, ownProps) => ({
   currentIndex: state.ui.index,
   currentPlaylist: state.ui.songs,
   playbar: state.ui.playbarControls,
-  playedIndices: state.ui.playedIndices
+  playedIndices: state.ui.playedIndices,
+  volume: state.ui.volume
 })
 
 const mdtp = dispatch => ({
@@ -28,7 +29,8 @@ const mdtp = dispatch => ({
   resumeSong: (payload) => dispatch(resumeSong(payload)),
   getAlbums: () => dispatch(fetchAlbums()),
   toggleRandom: (isRandom) => dispatch(toggleRandom(isRandom)),
-  toggleLooping: (isLooping) => dispatch(toggleLooping(isLooping))
+  toggleLooping: (isLooping) => dispatch(toggleLooping(isLooping)),
+  setVolume: (volume) => dispatch(setVolume(volume))
 })
 
 export default connect(mstp, mdtp)(PlayBar);

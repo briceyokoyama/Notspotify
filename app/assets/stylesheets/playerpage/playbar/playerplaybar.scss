@@ -16,7 +16,7 @@
 }
 
 #volume {
-  width: 99%;
+  width: 100%;
 }
 
 #handle, #volumeHandle {
@@ -26,11 +26,11 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  transform: scale(0);
+  transform: translateX(-50%) scale(0);
 }
 
 #volumeHandle {
-  left: 90%;
+  left: 100%;
   z-index: 2;
 }
 
@@ -43,7 +43,8 @@
   #handle {
     transition-property: transform;
     transition-duration: 0.2s;
-    transform: scale(1);
+    transform: scale(1) translateX(-50%);
+    z-index: 2;
   }
 }
 
@@ -55,7 +56,7 @@
   #volumeHandle {
     transition-property: transform;
     transition-duration: 0.2s;
-    transform: scale(1);
+    transform: scale(1) translateX(-50%);
   }
 }
 

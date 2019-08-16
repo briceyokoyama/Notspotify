@@ -8,6 +8,7 @@ import indexReducer from './index_reducer';
 import playBarReducer from './playbar_controls_reducer';
 import prevIndexReducer from './prev_index_reducer';
 import addSongReducer from './add_song_reducer';
+import volumeReducer from './volume_reducer'
 
 
 export default combineReducers({
@@ -19,5 +20,6 @@ export default combineReducers({
   index: indexReducer,
   playedIndices: prevIndexReducer,
   playbarControls: playBarReducer,
-  addSong: addSongReducer
+  addSong: addSongReducer,
+  volume: volumeReducer
 })

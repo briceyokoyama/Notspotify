@@ -9,6 +9,7 @@ export const NEXT_SONG = "NEXT_SONG";
 export const RESUME_SONG = "RESUME_SONG";
 export const TOGGLE_RANDOM = "TOGGLE_RANDOM";
 export const TOGGLE_LOOP = "TOGGLE_LOOP";
+export const SET_VOLUME = "SET_VOLUME";
 
 const receiveSongs = (songs) => ({
   type: RECEIVE_SONGS,
@@ -125,6 +126,13 @@ export const toggleRandom = (isRandom) => {
   return ({
     type: TOGGLE_RANDOM,
     isRandom: !isRandom
+  })
+}
+
+export const setVolume = (volume) => {
+  return ({
+    type: SET_VOLUME,
+    volume
   })
 }
 

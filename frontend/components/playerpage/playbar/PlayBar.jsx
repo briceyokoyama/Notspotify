@@ -6,11 +6,6 @@ class PlayBar extends React.Component {
   constructor(props) {
     super(props);
 
-
-    this.state = {
-      volume: 1
-    }
-
     this.updateProgress = this.updateProgress.bind(this);
     this.toggleRandom = this.toggleRandom.bind(this);
     this.toggleLooping = this.toggleLooping.bind(this);
@@ -34,7 +29,6 @@ class PlayBar extends React.Component {
     var currTime = document.getElementById('song-current-time')
     var value = 0;
     let audio = document.getElementsByClassName('react-audio-player')[0];
-    audio.volume = this.state.volume;
     if (audio.currentTime > 0) {
        value = (100 / audio.duration) * audio.currentTime;
        let minutes = Math.floor(audio.currentTime/60);
@@ -71,7 +65,6 @@ class PlayBar extends React.Component {
     } else if (progressWidth > progressBar.offsetWidth) {
       audio.currentTime = audio.duration;
     }
-    
   }
 
   mouseDown(e) {
@@ -96,18 +89,15 @@ class PlayBar extends React.Component {
     let volumeWidth = e.pageX - volumeBar.offsetLeft;
 
     if (volumeWidth >= 0 && volumeWidth <= volumeBar.offsetWidth) {
-      audio.volume = volumeWidth/volumeBar.offsetWidth;
-      this.setState({volume: volumeWidth/volumeBar.offsetWidth});
+      this.props.setVolume(volumeWidth/volumeBar.offsetWidth);
       volume.style.width = 100*volumeWidth/volumeBar.offsetWidth + '%';
       volumeHandle.style.left = volumeWidth + 'px';
     } else if (volumeWidth < 0) {
-      audio.volume = 0;
-      this.setState({volume: 0});
+      this.props.setVolume(0);
       volume.style.width = '0%';
       volumeHandle.style.left = '0px';
     } else if (volumeWidth > volumeBar.offsetWidth) {
-      audio.volume = 1;
-      this.setState({volume: 1});
+      this.props.setVolume(1);
       volume.style.width = '100%';
       volumeHandle.style.left = volumeBar.offsetWidth + 'px';
     }
@@ -158,18 +148,18 @@ class PlayBar extends React.Component {
             <div id='song-duration'>
               0:00
             </div>
-            <ReactAudioPlayer />  
+            <ReactAudioPlayer volume={this.props.volume}/>  
           </div>
         </div>
         <div className={'playbar-controls'}>
-          <i class="fa fa-volume-off fa_custom"></i>
+          <i className="fa fa-volume-off fa_custom"></i>
           <div id='volumeBar' onClick={this.mouseMoveVolume}>
             <span id='volume' onMouseDown={this.mouseDownVolume}>
             </span>
             <div id='volumeHandle' onMouseDown={this.mouseDownVolume}>
             </div>
           </div>
-          <i class="fa fa-volume-up fa_custom"></i>
+          <i className="fa fa-volume-up fa_custom"></i>
         </div>
       </div>
     )
