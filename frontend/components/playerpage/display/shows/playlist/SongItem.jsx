@@ -33,7 +33,7 @@ class SongItem extends React.Component {
   render() {
     let {song} = this.props;
     return (
-      <div className={'song-item'}>
+      <div className={'song-item'} onDoubleClick={this.playSong}>
         <div className={'buttons'}>
           <i className="fa fa-music" aria-hidden="true"></i>
           <i className="fa fa-play-circle-o hidden" aria-hidden="true" onClick={this.playSong}/>
