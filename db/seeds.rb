@@ -390,6 +390,6 @@ ActiveRecord::Base.transaction do
   artist02.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist2_avatar_1.jpg'), filename: 'avatar.jpg')
   artist01.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist4_avatar_1.jpg'), filename: 'avatar.jpg')
 
-  album1 = Album.find(20);
+  album1 = artist02.albums[0]
   album1.cover.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/album-covers/album2_cover_1.jpg'), filename: 'cover.jpg')
 end
