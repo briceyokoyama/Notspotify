@@ -387,8 +387,8 @@ ActiveRecord::Base.transaction do
 
   artist01 = Artist.find_by(name: "Frank Ocean")
   artist02 = Artist.find_by(name: "Trey Songz")
-  artist10.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist10_avatar.jpg'), filename: 'avatar.jpg')
-  artist10.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist10_avatar.jpg'), filename: 'avatar.jpg')
+  artist02.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist2_avatar_1.jpg'), filename: 'avatar.jpg')
+  artist01.avatar.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/artist-avatars/artist4_avatar_1.jpg'), filename: 'avatar.jpg')
 
   album1 = Album.find(20);
   album1.cover.attach(io: open('https://s3-us-west-1.amazonaws.com/notspotify-pro/album-covers/album2_cover_1.jpg'), filename: 'cover.jpg')
