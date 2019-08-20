@@ -1,4 +1,5 @@
 import { RECEIVE_ALBUMS, RECEIVE_ALBUM } from '../actions/album_actions';
+import { RECEIVE_ARTIST } from '../actions/artist_actions'
 
 const albumsReduer = (state = {}, action) => {
   Object.freeze(state)

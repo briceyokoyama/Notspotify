@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ArtistShow from './ArtistShow';
+import { fetchArtist } from '../../../../../actions/artist_actions'
 
 const artistSelector = (artists, artist_id) => {
   return artists[artist_id];
@@ -18,7 +19,7 @@ const mstp = (state, ownProps) => ({
 })
 
 const mdtp = dispatch => ({
-
+  fetchArtist: (id) => dispatch(fetchArtist(id))
 })
 
 export default connect(mstp, mdtp)(ArtistShow);

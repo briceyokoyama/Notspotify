@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AlbumIndexItem from '../../../display/indexes/albums/AlbumIndexItem'
 
 const ArtistShow = (props) => {
   console.log("albums: ", props.albums)
+
+  useEffect(() => {
+    props.fetchArtist(props.artistId)
+  }, {})
+
   return (
     <div className='artist-show-container'>
       <div className='artist-picture-display'>
-          <img className='artist-image' src={props.artist.avatarUrl}/>
-          <p>{props.artist.name}</p>
+          {props.artist ? <img className='artist-image' src={props.artist.avatarUrl}/> : null}
+          {props.artist ? <p>{props.artist.name}</p> : null}
       </div>
 
       <div className='album-header'>
