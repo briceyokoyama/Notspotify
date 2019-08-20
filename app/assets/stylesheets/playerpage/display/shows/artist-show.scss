@@ -1,0 +1,29 @@
+.artist-show-container {
+  width: 100%;
+  height: calc(100vh - 131px);
+  position: relative;
+  top: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artist-picture-display {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-size: 2em;
+    font-weight: 500;
+    padding-top: 15px;
+  }
+}
+
+.album-header {
+  align-self: flex-start;
+  justify-self: flex-start;
+  font-weight: 400;
+  padding-top: 50px;
+}

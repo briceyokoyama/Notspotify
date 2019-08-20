@@ -6,7 +6,7 @@ import ArtistIndexContainer from './indexes/artists/ArtistIndexContainer';
 import PlaylistShowContainer from './shows/playlist/PlaylistShowContainer';
 import AlbumShowContainer from './shows/album/AlbumShowContainer';
 import AlbumIndexContainer from './indexes/albums/AlbumIndexContainer';
-// import { ProtectedRoute } from '../../../util/route_util';
+import ArtistShowContainer from './shows/artist/ArtistShowContainer';
 
 class PlayerDisplay extends React.Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class PlayerDisplay extends React.Component {
         <Switch>
           <Route path='/playlists/:id' component={PlaylistShowContainer} />
           <Route path='/albums/:id' component={AlbumShowContainer} />
+          <Route path='/artists/:id' component={ArtistShowContainer} />
           <Route path='/songs/' component={PlaylistShowContainer} />
           <Route path='/:main/playlists' component={PlaylistIndexContainer} />
           <Route path='/:main/artists' component={ArtistIndexContainer} />
