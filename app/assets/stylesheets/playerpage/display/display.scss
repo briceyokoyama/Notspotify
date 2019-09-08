@@ -39,9 +39,10 @@
   max-width: 1600px;
   margin-left: 230px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: start;
+  overflow-y: hidden;
   padding: 0;
   margin-top: 40px;
 }
