@@ -13,3 +13,9 @@ json.playlistSongs do
     json.partial! "api/playlists/playlist_song", playlist_song: song
   end
 end
+
+json.playlistFollowers do
+  @playlist.playlist_followers.each do |follower|
+    json.partial! "api/playlists/playlist_follower", playlist_follower: follower
+  end
+end

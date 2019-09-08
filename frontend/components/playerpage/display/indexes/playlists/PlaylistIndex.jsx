@@ -1,11 +1,11 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import PlaylistIndexItem from './PlaylistIndexItem';
 import CreatePlaylistModal from './CreatePlaylistModal';
 
 const PlaylistIndex = (props) => {
   const [showModal, toggleModal] = useState(false);
   const modal = () => toggleModal(!showModal)
-
+  console.log(props.playlists)
 
   return (
     <>
