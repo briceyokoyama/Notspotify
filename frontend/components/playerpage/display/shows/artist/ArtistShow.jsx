@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import AlbumIndexItem from '../../../display/indexes/albums/AlbumIndexItem'
 
 const ArtistShow = (props) => {
-  console.log("albums: ", props.albums)
 
   useEffect(() => {
     props.fetchArtist(props.artistId)

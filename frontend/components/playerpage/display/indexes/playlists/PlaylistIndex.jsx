@@ -1,50 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import PlaylistIndexItem from './PlaylistIndexItem';
 import CreatePlaylistModal from './CreatePlaylistModal';
 
-class PlaylistIndex extends React.Component {
-  constructor(props) {
-    super(props);
+const PlaylistIndex = (props) => {
+  const [showModal, toggleModal] = useState(false);
+  const modal = () => toggleModal(!showModal)
 
-    this.state = {
-      showModal: false
-    }
-    this.showModal = this.showModal.bind(this); 
-    this.hideModal = this.hideModal.bind(this); 
-  }
 
-  componentDidMount() {
-    this.props.fetchPlaylists();
-  }
-
-  showModal() {
-    this.setState({showModal: true})
-  }
-
-  hideModal() {
-    this.setState({showModal: false})
-  }
-
-  render() {
-    return (
-      <>
-        <CreatePlaylistModal handleClose={this.hideModal} show={this.state.showModal} makePlaylist={this.props.makePlaylist} currentUserId={this.props.currentUserId}/>
-        { (this.props.match.params.main === 'library') ? (
-          <div className={'playlist-create-button-holder'}>
-            <button className={'playlist-create-button'} onClick={this.showModal}>
-              NEW PLAYLIST
-            </button>
-          </div>
-          ) : ( null )
-        }
-        <div className={'playlist-index'}>
-          <ul>
-            {this.props.playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist}/>)}
-          </ul>
+  return (
+    <>
+      <CreatePlaylistModal handleClose={modal} show={showModal} makePlaylist={props.makePlaylist} currentUserId={props.currentUserId}/>
+      { (props.match.params.main === 'library') ? (
+        <div className={'playlist-create-button-holder'}>
+          <button className={'playlist-create-button'} onClick={modal}>
+            NEW PLAYLIST
+          </button>
         </div>
-      </>
-    )
-  }
+        ) : ( null )
+      }
+      <div className={'playlist-index'}>
+        <ul>
+          {props.playlists.map(playlist => <PlaylistIndexItem key={playlist.id} playlist={playlist}/>)}
+        </ul>
+      </div>
+    </>
+  )
 }
+
 
 export default PlaylistIndex;
