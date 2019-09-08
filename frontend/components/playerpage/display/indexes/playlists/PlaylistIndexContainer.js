@@ -3,6 +3,7 @@ import PlaylistIndex from './PlaylistIndex';
 import { fetchPlaylists, makePlaylist } from '../../../../../actions/playlist_actions';
 
 const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
+  console.log(playlistFollowers)
   if (scenario === 'library') {
     return Object.values(playlistFollowers)
       .filter(follow => follow.userId === user_id)
