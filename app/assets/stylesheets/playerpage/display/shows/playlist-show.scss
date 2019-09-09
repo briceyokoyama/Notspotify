@@ -1,9 +1,7 @@
 .playlist-show-container {
   width: 100%;
-  height: calc(100vh - 131px);
+  height: calc(100vh - 171px);
   position: relative;
-  top: -40px;
-  // border: 0.5px solid red;
   display: grid;
   grid-template-columns: 37% 63%;
 
