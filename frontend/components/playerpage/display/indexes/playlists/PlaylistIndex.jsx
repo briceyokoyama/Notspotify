@@ -5,7 +5,6 @@ import CreatePlaylistModal from './CreatePlaylistModal';
 const PlaylistIndex = (props) => {
   const [showModal, toggleModal] = useState(false);
   const modal = () => toggleModal(!showModal)
-  console.log(props.playlists)
 
   return (
     <>

@@ -1,6 +1,6 @@
 //MODAL DESIGN INSPIRED BY: https://codepen.io/alligatorio/pen/aYzMKL
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const CreatePlaylistModal = (props) => {
 
