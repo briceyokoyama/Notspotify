@@ -1,21 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ArtistSearch from '../../../search/ArtistSearch';
 
 
-class ArtistIndex extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const ArtistIndex = props => {
 
-  componentDidMount() {
-    this.props.fetchArtists()
-  }
+  useEffect(() => {
+    props.fetchArtists()
+  }, {})
 
-  render() {
-    return (
-      <ArtistSearch artists={this.props.artists} />
-    )
-  }
+  return (
+    <ArtistSearch artists={props.artists} />
+  )
 }
 
 export default ArtistIndex;
