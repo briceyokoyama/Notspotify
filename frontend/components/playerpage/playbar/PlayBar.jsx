@@ -148,7 +148,7 @@ class PlayBar extends React.Component {
             <div id='song-duration'>
               0:00
             </div>
-            <ReactAudioPlayer volume={this.props.volume}/>  
+            <ReactAudioPlayer volume={this.props.volume} onEnded={() => this.props.nextSong({songs: currentPlaylist, index: currentIndex, looping: isLooping, random: isRandom, isPlaying: this.props.isPlaying})}/>  
           </div>
         </div>
         <div className={'playbar-controls'}>
