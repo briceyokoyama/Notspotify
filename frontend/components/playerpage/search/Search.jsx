@@ -44,7 +44,7 @@ class Search extends React.Component {
         this.props.history.push('/search')
       } else {
         this.props.history.push(`/search/results/${e.target.value}`)
-        this.performSearch(e.target.value);
+        this.debounce(1000)(e.target.value);
       }
     }
   }
@@ -54,6 +54,20 @@ class Search extends React.Component {
     this.props.searchAlbums(searchTerm.toLowerCase());
     this.props.searchArtists(searchTerm.toLowerCase());
     this.props.searchPlaylists(searchTerm.toLowerCase());
+  }
+
+  debounce(interval) {
+    let timeout;
+
+    return (...args) => {
+      const fnCall = () => {
+        timeout = null;
+        this.performSearch(...args);
+      }
+
+      clearTimeout(timeout);
+      timeout = setTimeout(fnCall, interval);
+    }
   }
 
   render() {
