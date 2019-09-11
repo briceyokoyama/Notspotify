@@ -3,7 +3,6 @@ import PlaylistIndex from './PlaylistIndex';
 import { fetchPlaylists, makePlaylist } from '../../../../../actions/playlist_actions';
 
 const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
-  console.log(playlistFollowers)
   if (scenario === 'library') {
     return Object.values(playlistFollowers)
       .filter(follow => follow.userId === user_id)
@@ -15,8 +14,7 @@ const playlistSelector = (playlists, scenario, user_id, playlistFollowers) => {
 
 const mstp = ({entities: {playlists, playlistFollowers}, session: {id}}, ownProps) => ({
   currentUserId: id,
-  playlists: playlistSelector(playlists, ownProps.match.params.main || 'library', id, playlistFollowers),
-  // scenario: (ownProps.adding === true) ? 'library' : ownProps.match.params.main
+  playlists: playlistSelector(playlists, ownProps.match.params.main || 'library', id, playlistFollowers)
 })
 
 const mdtp = dispatch => ({

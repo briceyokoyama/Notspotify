@@ -5,10 +5,13 @@ class Search extends React.Component {
   constructor(props) {
     super(props)
 
+    this.timeout = null;
+
     this.state = {
       searchTerm: props.match.params.searchTerm,
       headings: []
     }
+    this.debounce = this.debounce.bind(this);
   }
 
   componentDidMount() {
@@ -57,16 +60,15 @@ class Search extends React.Component {
   }
 
   debounce(interval) {
-    let timeout;
 
     return (...args) => {
       const fnCall = () => {
-        timeout = null;
+        this.timeout = null;
         this.performSearch(...args);
       }
 
-      clearTimeout(timeout);
-      timeout = setTimeout(fnCall, interval);
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(fnCall, interval);
     }
   }
 
