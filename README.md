@@ -75,49 +75,100 @@ The PlayerPage component is rendered after a user is logged-in. Here three main 
 The search feature allows users to explore the content on Notspotify. The database is queried with the input from the user. The ```Search``` component sends a request to the API which will fill the Redux store with all relevent information based on the users query. The component also determines which headings to render based on the results returned with the users query. The code snippet below shows how the search componenet is implemented:
 ```javascript
 //search.jsx
-componentDidMount() {
-  if (this.props.match.params.searchTerm) {
-    this.performSearch(this.props.match.params.searchTerm)
+class Search extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.timeout = null;
+
+    this.state = {
+      searchTerm: props.match.params.searchTerm,
+      headings: []
+    }
+    this.debounce = this.debounce.bind(this);
   }
-}
 
-componentDidUpdate(prevProps) {
-
-  if (this.props !== prevProps) {
-    let headings = [];
-    if (this.props.artists.length !== 0) {
-      headings.push('ARTISTS')
-    }
-    if (this.props.albums.length !== 0) {
-      headings.push('ALBUMS')
-    }
-    if (this.props.playlists.length !== 0) {
-      headings.push('PLAYLISTS')
-    }
-    if (this.props.songs.length !== 0) {
-      headings.push('SONGS')
-    }
-    this.setState({headings});
-  }
-}
-
-handleInput() {
-  return (e) => {
-    this.setState({searchTerm: e.target.value})
-    if (e.target.value === '') {
-      this.props.history.push('/search')
-    } else {
-      this.props.history.push(`/search/results/${e.target.value}`)
-      this.performSearch(e.target.value);
+  componentDidMount() {
+    if (this.props.match.params.searchTerm) {
+      this.performSearch(this.props.match.params.searchTerm)
     }
   }
-}
 
-performSearch(searchTerm) {
-  this.props.searchSongs(searchTerm.toLowerCase());
-  this.props.searchAlbums(searchTerm.toLowerCase());
-  this.props.searchArtists(searchTerm.toLowerCase());
-  this.props.searchPlaylists(searchTerm.toLowerCase());
+  componentDidUpdate(prevProps) {
+
+    if (this.props !== prevProps) {
+      let headings = [];
+      if (this.props.artists.length !== 0) {
+        headings.push('ARTISTS')
+      }
+      if (this.props.albums.length !== 0) {
+        headings.push('ALBUMS')
+      }
+      if (this.props.playlists.length !== 0) {
+        headings.push('PLAYLISTS')
+      }
+      if (this.props.songs.length !== 0) {
+        headings.push('SONGS')
+      }
+      this.setState({headings});
+    }
+  }
+
+  handleInput() {
+    return (e) => {
+      this.setState({searchTerm: e.target.value})
+      if (e.target.value === '') {
+        this.props.history.push('/search')
+      } else {
+        this.props.history.push(`/search/results/${e.target.value}`)
+        this.debounce(1000)(e.target.value);
+      }
+    }
+  }
+
+  performSearch(searchTerm) {
+    this.props.searchSongs(searchTerm.toLowerCase());
+    this.props.searchAlbums(searchTerm.toLowerCase());
+    this.props.searchArtists(searchTerm.toLowerCase());
+    this.props.searchPlaylists(searchTerm.toLowerCase());
+  }
+
+  debounce(interval) {
+
+    return (...args) => {
+      const fnCall = () => {
+        this.timeout = null;
+        this.performSearch(...args);
+      }
+
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(fnCall, interval);
+    }
+  }
+
+  render() {
+    return (
+      <div className="search-main-container">
+        <div className="search-display-container">
+          <div className="search-entry">
+            <div className="search-entry-spacing">
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder={'Start typing...'} value={this.state.searchTerm} onChange={this.handleInput()}/>
+              </form>
+            </div>
+          </div>
+          <SearchResults
+            headings={this.state.headings}
+            songs={this.props.songs}
+            albums={this.props.albums}
+            artists={this.props.artists}
+            playlists={this.props.playlists}
+            playSong = {this.props.playSong}
+          />
+        </div>
+      </div>
+    )
+  }
 }
 ```
   
