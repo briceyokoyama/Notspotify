@@ -72,7 +72,7 @@ The PlayerPage component is rendered after a user is logged-in. Here three main 
 
 ![](./readme/search.gif)
 
-The search feature allows users to explore the content on Notspotify. The database is queried with the input from the user. The ```Search``` component sends a request to the API which will fill the Redux store with all relevent information based on the users query. The component also determines which headings to render based on the results returned with the users query. The code snippet below shows how the search componenet is implemented:
+The search feature allows users to explore the content on Notspotify. The database is queried with the input from the user. The ```Search``` component sends a request to the API which will fill the Redux store with all relevent information based on the users query. The component also determines which headings to render based on the results returned with the users query. The code snippet below shows how the search component is implemented:
 ```javascript
 //search.jsx
 class Search extends React.Component {
@@ -172,7 +172,7 @@ class Search extends React.Component {
 }
 ```
   
-The following code snippet shows how items returned by the search component are handled by the ```SearchContainer``` componenet. The componenet filters items in the Redux store based on the users query:
+The following code snippet shows how items returned by the search component are handled by the ```SearchContainer``` component. The component filters items in the Redux store based on the users query:
 
 ```javascript
 //SearchContainer.js
